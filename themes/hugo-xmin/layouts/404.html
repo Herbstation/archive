@@ -1,0 +1,21 @@
+{{define "head"}}
+<style>
+    .robuddy {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        margin: 5em;
+    }
+</style>
+{{end}}
+
+{{define "main"}}
+<div class="robuddy">
+    <img src='{{ "404.png" | relURL}}'/>
+    <h1>404</h1>
+</div>
+{{end}}
+
+{{define "footer"}}
+    If this is unexpected, please <a href="/contact">contact the webmaster</a>.
+{{end}}

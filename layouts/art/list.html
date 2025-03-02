@@ -1,0 +1,50 @@
+{{define "head"}}
+<style>
+    body {
+        max-width: 992px;
+    }
+    .gallery {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1em;
+        flex-wrap: wrap;
+    }
+    .submission {
+        border: 1px solid grey;
+        border-radius: 5px;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        justify-items: center;
+    }
+    h1 {
+        margin-bottom: 0;
+    }
+</style>
+{{end}}
+
+{{define "main"}}
+<section class="gallery">
+    {{range .Pages}}
+    <article class="submission">
+        <h1>{{.Title}}</h1>
+        {{ range (.GetTerms "Contributors") }}
+        <span class="author"><a href="{{.Permalink}}">{{ .Title }}</a></span>
+        {{ end }}
+        <a href="{{.Permalink}}">
+        {{with .Params.image}}
+        {{ $image := resources.Get . }}
+        {{ $image := $image.Fill "256x256 Center" }}
+        {{with $image}}
+        <img src="{{.RelPermalink}}" width="{{ .Width }}" height="{{ .Height }}">
+        {{else}}
+        Missing resource!
+        {{end}}
+        {{else}}
+        Missing image def!
+        {{end}}
+        </a>
+    </article>
+    {{end}}
+</section>
+{{end}}

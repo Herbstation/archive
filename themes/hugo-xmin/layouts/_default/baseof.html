@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{with .Title}}{{ . }} | {{end}}{{ .Site.Title }}</title>
+  <link rel="stylesheet" href='{{ "css/style.css" | relURL }}' />
+  <link rel="stylesheet" href='{{ "css/fonts.css" | relURL }}' />
+  {{ range .AlternativeOutputFormats -}}
+  {{ printf `
+  <link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ end -}}
+  <meta name="description" content="{{ .Summary | truncate 300 }}">
+  {{ block "head" . }}
+  {{end}}
+</head>
+
+<body>
+  <header>
+    {{block "navigation" . }}
+    <nav>
+      {{ $title := .Site.Title }}
+      {{ with .Site.Params.Logo }}
+      <img class="menu" src="{{ . | relURL }}" alt="{{ $title }}" />
+      {{ else }}
+      <div class="menu">{{ $title }}</div>
+      {{ end }}
+      <ul class="menu">
+        {{with .Site.Menus.main }}
+        {{$pages := . }}
+        {{else}}
+        {{$pages := .RegularPages}}
+        {{end}}
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+    <hr />
+    {{end}}
+  </header>
+  <main>
+    {{block "main" . }}
+    <!-- Content missing! -->
+    {{end}}
+  </main>
+  <footer>
+    <hr />
+    {{block "footer" . }}
+    {{ with .Params.copyright }}
+    {{ . | markdownify }}
+    {{ else }}
+    {{ .Site.Copyright | markdownify }}
+    {{ end }}
+    {{end}}
+  </footer>
+</body>
+
+</html>

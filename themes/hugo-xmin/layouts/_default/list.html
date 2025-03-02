@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <h1>{{ .Title | markdownify }}</h1>
+
+  {{ .Content }}
+
+  <ul>
+    {{ $pages := .Pages }}
+    {{ range (where $pages "Section" "!=" "") }}
+    <li>
+      {{with .Date }}
+      <time datetime='{{ .Format "2006-02-01" }}'>{{ .Format "2006/01/02" }}</time>
+      {{end}}
+      <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+    </li>
+    {{ end }}
+  </ul>
+{{ end }}

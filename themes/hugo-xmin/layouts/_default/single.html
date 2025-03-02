@@ -1,0 +1,20 @@
+{{ define "main" }}
+<article>
+    <header>
+        {{ block "header-extra" . }}
+        {{end}}
+        <h1>{{ .Title | markdownify }}</h1>
+        {{ range (.GetTerms "Contributors") }}
+        <span class="author"><a href="{{.Permalink}}">{{ .Title }}</a></span>
+        {{ end }}
+        {{ with .Params.date }}<time datetime='{{ .Format "2006-02-01" }}'> {{ .Format "January 2, 2006" }} </time>{{ end }}
+        </div>
+        {{ with .Draft }}
+        <mark>Unlisted</mark>
+        {{ end }}
+    </header>
+    <main>
+        {{ .Content }}
+    </main>
+</article>
+{{end}}
