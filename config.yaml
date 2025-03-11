@@ -19,7 +19,23 @@ markup:
 
 menu:
     main:
+    -   identifier: contributors
+        name: Contribution Credits
+        url: /contributors/
+        weight: 1
+    -   identifier: art
+        name: Official Art
+        url: /art/
+        weight: 2
+    -   identifier: fanart
+        name: Fan Art
+        url: /fanart/
+        weight: 3
+    -   identifier: roundRecordings
+        name: Round Recordings
+        url: /rounds/
+        weight: 3
     -   identifier: tags
         name: Tags
         url: /tags/
-        weight: 3
+        weight: 4
