@@ -19,10 +19,14 @@ markup:
 
 menu:
     main:
-    -   identifier: contributors
-        name: Contribution Credits
-        url: /contributors/
+    -   identifier: faq
+        name: FAQs
+        url: /faq/
         weight: 1
+    -   identifier: contributors
+        name: Contributors
+        url: /contributors/
+        weight: 2
     -   identifier: art
         name: Official Art
         url: /art/
@@ -35,7 +39,3 @@ menu:
         name: Round Recordings
         url: /rounds/
         weight: 3
-    -   identifier: tags
-        name: Tags
-        url: /tags/
-        weight: 4
