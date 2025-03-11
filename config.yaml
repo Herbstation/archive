@@ -2,7 +2,7 @@ baseURL: 'http://herbstation.github.io/'
 languageCode: 'en-us'
 title: '35 Below Archive'
 theme: 'hugo-xmin'
-copyright: 'WORK IN PROGRESS'
+copyright: 'Copyright © 2025, 35 Below Team'
 params:
     logo: /pix/welcome.png
 
