@@ -15,26 +15,4 @@
     <article>
         {{ .Content }}
     </article>
-    <section class="quick-links">
-        {{ with (where .Site.RegularPages.ByPublishDate.Reverse "Section" "post")}}
-        <section class="recent-articles">
-            <h2>Recent Posts</h2>
-            <ul>
-            {{ range first 5 . }}
-                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-            {{end}}
-            </ul>
-        </section>
-        {{end}}
-        {{ with .Site.Menus.index}}
-        <section class="explore-nav">
-            <h2>Explore the Archive</h2>
-            <ul>
-            {{ range . }}
-                <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-            {{end}}
-            </ul>
-        </section>
-        {{ end }}
-    </section>
 {{ end }}
