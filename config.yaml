@@ -6,8 +6,6 @@ copyright: 'Copyright © 2025, 35 Below Team'
 params:
     logo: /pix/welcome.png
 
-rssLimit: 15
-
 taxonomies:
     category: categories
     tag: tags
