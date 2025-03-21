@@ -1,3 +1,5 @@
 ---
-title: R2, The Unnamed One
+title: R2, To Build A Fire
+type: round
+cinematic: "videos/intro-2.mp4"
 ---

@@ -1,0 +1,89 @@
+{{define "head"}}
+<style>
+    .row {
+        display: flex;
+    }
+
+    .cinematic {
+        flex: 45%;
+    }
+
+    .synopsis {
+        flex: 55%;
+    }
+
+    .no_cinematic {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 320px;
+        height: 240px;
+        text-decoration: none;
+        background: #eee;
+        border-radius: 5px;
+    }
+
+    .no_cinematic_text {
+        margin: 0;
+    }
+</style>
+{{end}}
+
+{{ define "main" }}
+<article>
+    <ul class="menu">
+        {{ range .Site.Menus.rounds }}
+        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+    </ul>
+    <hr />
+    <header>
+        {{ block "header-extra" . }}
+        {{end}}
+        <h1>{{ .Title | markdownify }}</h1>
+        {{ range (.GetTerms "Contributors") }}
+        <span class="author"><a href="{{.Permalink}}">{{ .Title }}</a></span>
+        {{ end }}
+        {{ with .Params.date }}<time datetime='{{ .Format "2006-02-01" }}'> {{ .Format "January 2, 2006" }} </time>{{ end }}
+        </div>
+        {{ with .Draft }}
+        <mark>Unlisted</mark>
+        {{ end }}
+    </header>
+    <main>
+        <div class="row">
+            <div class="cinematic">
+                <h1>Intro Cinematic</h1>
+                {{with .Params.cinematic}}
+                {{ $cinematic := resources.Get . }}
+                {{with $cinematic}}
+                <video width="320" height="240" controls src="{{.RelPermalink}}" type="video/mp4"></video>
+                {{else}}
+                Missing resource!
+                {{end}}
+                {{else}}
+                <div class="no_cinematic">
+                    <img src='{{ "404.png" | relURL}}'/>
+                    <h3 class="no_cinematic_text">No Cinematic!</h3>
+                </div>
+                {{end}}
+
+                <h1>Round Recordings</h1>
+                {{ range $map := .Params.recordings }}
+                <li><a href="{{ index $map "url" }}">{{ index $map "text" }}</a></li>
+                {{else}}
+                No recordings!
+                {{end}}
+                <br>
+                <a href="https://www.youtube.com/playlist?list=PLBRm0wnCu_DjDvNAu3OyQI8IU4zQU-4ZD&jct=0rUXKhLKtrj4_losPel4XQ">Visit the YouTube playlist for more!</a>
+            </div>
+            <div class="synopsis">
+                <h1>Synopsis</h1>
+                {{ .Params.synopsis | markdownify }}
+            </div>
+        </div>
+        {{ .Content }}
+    </main>
+</article>
+{{end}}
