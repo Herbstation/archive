@@ -40,6 +40,10 @@ menu:
         url: /fanart/
         weight: 5
     rounds:
+    -   identifier: round_prologue
+        name: Prologue
+        url: /rounds/prologue/
+        weight: 1
     -   identifier: round_1
         name: Round 1
         url: /rounds/round_1/
@@ -61,7 +65,7 @@ menu:
         url: /rounds/round_4_2/
         weight: 1
     -   identifier: round_soviet
-        name: Soviet Training
+        name: Soviet Training Rounds
         url: /rounds/soviet/
         weight: 1
     -   identifier: round_war

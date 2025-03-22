@@ -5,5 +5,5 @@ cinematic: "videos/{{.Name}}"
 recordings:
 -   text: Anonymous's perspective
     url: https://www.youtube.com
-synopsis: "No synopsis available."
+synopsis: No synopsis available.
 ---

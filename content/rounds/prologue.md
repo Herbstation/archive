@@ -1,0 +1,5 @@
+---
+title: Prologue, The Fate Of The NCS Aegis
+type: round
+synopsis: This round served as the first extended playtest, where guest pass holders and a few others were invited to freeze to death in a still under development 35 Below. <br><br> Following the revelation that the Novy Mir, a Soviet ship thought to be lost in a channel accident 30 years prior, survived, and is broadcasting a signal from an extrasolar moon, Nanotrasen organises an expedition with the covert goal of discovering how a channel accident resulted in an interstellar jump. <br><br> Several months later, the first vessel of the newly formed Nanotrasen Exoplanetary Research Division, the NCS Aegis, makes planetfall on X4-6A. As the crew begins to set up provisional shelters, it becomes immediately obvious that the planet is far more hostile to life than initially projected. They are beset by inclement weather and packs of wolves, before eventually succumbing to the relentless aggression of the wildlife.
+---
