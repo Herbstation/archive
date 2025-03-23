@@ -27,6 +27,37 @@
     .no_cinematic_text {
         margin: 0;
     }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .gallery_box {
+        display: inline;
+        text-decoration: none;
+        background: #eee;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    .gallery_image {
+        display: block;
+        max-width:200px;
+        max-height:200px;
+        width: auto;
+        height: auto;
+    }
+
+    .gallery_text {
+        font-style: italic;
+        text-align: right;
+        color: grey;
+        padding-left: 3px;
+        padding-right: 3px;
+        margin: 0;
+    }
 </style>
 {{end}}
 
@@ -82,6 +113,30 @@
                 <h1>Synopsis</h1>
                 {{ .Params.synopsis | markdownify }}
             </div>
+        </div>
+        <div class="row">
+            <div>
+                <h1>Gallery</h1>
+                <div class="gallery">
+                    {{ $gallery := string .Params.gallery }}
+                    {{ range (.GetPage $gallery).Pages }}
+                    <div class="gallery_box">
+                        {{with .Params.media}}
+                        {{ $image := resources.Get . }}
+                        {{with $image}}
+                        <img src="{{.RelPermalink}}" class="gallery_image">
+                        {{else}}
+                        Missing resource!
+                        {{end}}
+                        {{else}}
+                        Missing image def!
+                        {{end}}
+
+                        <h6 class="gallery_text">{{ .Params.author }}</h6>
+                    </div>
+                    {{end}}
+                </div>
+           </div>
         </div>
         {{ .Content }}
     </main>
