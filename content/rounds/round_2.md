@@ -15,6 +15,6 @@ recordings:
     url: https://www.youtube.com/watch?v=BTkB8eInzKo
 -   text: Quinn's perspective (2)
     url: https://www.youtube.com/watch?v=yn2vLzIiTHo
-synopsis: The crew awake from cryosleep aboard the NSS Intrepid and prepare for landing.
+synopsis: Placeholder text.
 gallery: "/rounds/gallery/round_2"
 ---
