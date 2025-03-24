@@ -1,15 +1,20 @@
 {{define "head"}}
 <style>
+    .article {
+        width: 134%;
+        margin-left: -17%;
+    }
+
     .row {
         display: flex;
     }
 
     .cinematic {
-        flex: 45%;
+        flex: 40%;
     }
 
     .synopsis {
-        flex: 55%;
+        flex: 60%;
     }
 
     .no_cinematic {
@@ -17,8 +22,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 320px;
-        height: 240px;
+        width: 400px;
+        height: 300px;
         text-decoration: none;
         background: #eee;
         border-radius: 5px;
@@ -33,8 +38,6 @@
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        width: 150%;
-        margin-left: -25%;
     }
 
     .gallery_box {
@@ -178,7 +181,7 @@
 {{end}}
 
 {{ define "main" }}
-<article>
+<article class="article">
     <!-- Round Navigation Menu -->
     <ul class="menu">
         {{ range .Site.Menus.rounds }}
@@ -208,7 +211,7 @@
                 {{with .Params.cinematic}}
                 {{ $cinematic := resources.Get . }}
                 {{with $cinematic}}
-                <video width="320" height="240" controls src="{{.RelPermalink}}" type="video/mp4"></video>
+                <video width="400" height="300" controls src="{{.RelPermalink}}" type="video/mp4"></video>
                 {{else}}
                 Missing resource!
                 {{end}}
