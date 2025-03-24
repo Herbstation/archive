@@ -31,23 +31,39 @@
     .gallery {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
+        width: 150%;
+        margin-left: -25%;
     }
 
     .gallery_box {
-        display: inline;
         text-decoration: none;
         background: #eee;
         border-radius: 5px;
         margin: 5px;
     }
 
+    .gallery_image_crop {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+
     .gallery_image {
+        cursor: pointer;
+        transition: 0.3s;
         display: block;
-        max-width:200px;
-        max-height:200px;
+        min-width: 200px;
+        min-height: 200px;
         width: auto;
         height: auto;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    .gallery_image:hover {
+        opacity: 0.7;
     }
 
     .gallery_text {
@@ -58,17 +74,97 @@
         padding-right: 3px;
         margin: 0;
     }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal_contents {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 92%;
+        margin-top: 2%;
+        margin-left: 10%;
+        margin-right: 10%;
+        animation-name: zoom;
+        animation-duration: 0.5s;
+    }
+
+    @keyframes zoom {
+        from {transform:scale(0)}
+        to {transform:scale(1)}
+    }
+
+    .modal_image_contents {
+        flex-grow: 1;
+        align-content: center;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .modal_image_box {
+        display: inline-block;
+        text-decoration: none;
+        background: #eee;
+        border-radius: 5px;
+        padding: 5px;
+        padding-bottom: 0;
+    }
+
+    .modal_image {
+        display: block;
+        border-radius: 5px;
+    }
+
+    .modal_textbox {
+        width: 60%;
+        flex-grow: 0;
+        text-decoration: none;
+        background: #eee;
+        border-radius: 5px;
+        margin: auto;
+        margin-top: 5px;
+        padding: 1%;
+    }
+
+    .close_modal {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .close_modal:hover, .close_modal:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
 </style>
 {{end}}
 
 {{ define "main" }}
 <article>
+    <!-- Round Navigation Menu -->
     <ul class="menu">
         {{ range .Site.Menus.rounds }}
         <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
         {{ end }}
     </ul>
     <hr />
+    <!-- Round Title -->
     <header>
         {{ block "header-extra" . }}
         {{end}}
@@ -84,6 +180,7 @@
     </header>
     <main>
         <div class="row">
+            <!-- Cinematic & Recordings Column -->
             <div class="cinematic">
                 <h1>Intro Cinematic</h1>
                 {{with .Params.cinematic}}
@@ -109,11 +206,13 @@
                 <br>
                 <a href="https://www.youtube.com/playlist?list=PLBRm0wnCu_DjDvNAu3OyQI8IU4zQU-4ZD&jct=0rUXKhLKtrj4_losPel4XQ">Visit the YouTube playlist for more!</a>
             </div>
+            <!-- Synopsis Column -->
             <div class="synopsis">
                 <h1>Synopsis</h1>
                 {{ .Params.synopsis | markdownify }}
             </div>
         </div>
+        <!-- Gallery -->
         <div class="row">
             <div>
                 <h1>Gallery</h1>
@@ -121,17 +220,19 @@
                     {{ $gallery := string .Params.gallery }}
                     {{ range (.GetPage $gallery).Pages }}
                     <div class="gallery_box">
-                        {{with .Params.media}}
-                        {{ $image := resources.Get . }}
-                        {{with $image}}
-                        <img src="{{.RelPermalink}}" class="gallery_image">
-                        {{else}}
-                        Missing resource!
-                        {{end}}
-                        {{else}}
-                        Missing image def!
-                        {{end}}
-
+                        <div class="gallery_image_crop">
+                            {{ $desc := .Params.desc}}
+                            {{with .Params.media}}
+                            {{ $image := resources.Get . }}
+                            {{with $image}}
+                            <img src="{{.RelPermalink}}" class="gallery_image" data-desc="{{ $desc }}">
+                            {{else}}
+                            Missing resource!
+                            {{end}}
+                            {{else}}
+                            Missing image def!
+                            {{end}}
+                        </div>
                         <h6 class="gallery_text">{{ .Params.author }}</h6>
                     </div>
                     {{end}}
@@ -141,4 +242,52 @@
         {{ .Content }}
     </main>
 </article>
+
+<!-- Gallery Image Modal -->
+<div id="gallery_modal" class="modal">
+    <span class="close_modal">&times;</span>
+    <div class="modal_contents">
+        <div id="modal_image_contents" class="modal_image_contents">
+            <div id="modal_image_box" class="modal_image_box">
+                <img id="modal_image" class="modal_image">
+                <h5 class="gallery_text">contributed by Author</h5>
+            </div>
+        </div>
+        <div id="modal_textbox" class="modal_textbox">
+        </div>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById("gallery_modal");
+    var modal_image_contents = document.getElementById("modal_image_contents");
+    var modal_image_box = document.getElementById("modal_image_box");
+    var modal_image = document.getElementById("modal_image");
+    var modal_textbox = document.getElementById("modal_textbox");
+
+    Array.from(document.getElementsByClassName("gallery_image")).forEach((img) => {
+        img.onclick = function() {
+            modal.style.display = "block";
+            modal_image.src = this.src;
+            modal_textbox.innerHTML = this.dataset.desc;
+
+            // Set up the image dimensions, as object-fit does not work with the image box.
+            var max_width = screen.width * 0.8;
+            var max_height = modal_image_contents.clientHeight + modal_image.clientHeight - modal_image_box.clientHeight;
+
+            modal_image.style.width = `${max_width}px`;
+            modal_image.style.height = 'auto';
+
+            if (modal_image.clientHeight > max_height) {
+                modal_image.style.height = `${max_height}px`;
+                modal_image.style.width = 'auto';
+            }
+        }
+    });
+
+    var close_button = document.getElementsByClassName("close_modal")[0];
+    close_button.onclick = function() {
+        modal.style.display = "none";
+    }
+</script>
 {{end}}
