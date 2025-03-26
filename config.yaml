@@ -1,4 +1,4 @@
-baseURL: 'http://herbstation.github.io/'
+baseURL: 'http://herbstation.github.io/archive/'
 languageCode: 'en-us'
 title: '35 Below Archive'
 theme: 'hugo-xmin'
