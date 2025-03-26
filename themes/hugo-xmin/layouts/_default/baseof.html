@@ -21,8 +21,9 @@
     {{block "navigation" . }}
     <nav>
       {{ $title := .Site.Title }}
+      {{ $baseurl := .Site.BaseURL }}
       {{ with .Site.Params.Logo }}
-      <img class="menu" src="{{ . | relURL }}" alt="{{ $title }}" />
+      <img class="menu" src="{{ $baseurl }}{{ . | relURL }}" alt="{{ $title }}" />
       {{ else }}
       <div class="menu">{{ $title }}</div>
       {{ end }}
@@ -33,7 +34,7 @@
         {{$pages := .RegularPages}}
         {{end}}
         {{ range .Site.Menus.main }}
-        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        <li><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
         {{ end }}
       </ul>
     </nav>
