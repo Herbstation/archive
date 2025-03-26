@@ -7,10 +7,10 @@ recordings:
     url: https://www.youtube.com/watch?v=q5qbwW8lfD0
 -   text: Merryn's perspective
     url: https://www.youtube.com/watch?v=y-3nxDT5Gg0
--   text: REL's perspective
-    url: https://www.youtube.com/watch?v=7tzbWFA3j8M
 -   text: Quinn's perspective
     url: https://www.youtube.com/watch?v=3CjYfEinOSA
+-   text: REL's perspective
+    url: https://www.youtube.com/watch?v=7tzbWFA3j8M
 synopsis: The crew awake from cryosleep aboard the NSS Intrepid and prepare for landing.
 gallery: "/rounds/gallery/round_1"
 ---
