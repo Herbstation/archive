@@ -23,6 +23,8 @@ recordings:
     url: https://www.youtube.com/watch?v=od4uQlaJ22w
 -   text: Yuri's perspective
     url: https://www.youtube.com/watch?v=4qSEmUdwPOo
+synopsis: "/rounds/synopses/round_4_2"
+gallery: "/rounds/gallery/round_4_2"
 ---
 
 ## Other Cinematics

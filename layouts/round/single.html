@@ -238,7 +238,7 @@
             <!-- Synopsis Column -->
             <div class="synopsis">
                 <h1>Synopsis</h1>
-                {{ $synopsis := (print "/rounds/synopses/" .File.BaseFileName ".md") }}
+                {{ $synopsis := string .Params.synopsis }}
                 {{ readFile (.GetPage $synopsis) | markdownify }}
             </div>
         </div>
@@ -249,7 +249,7 @@
         <div>
             <h1>Gallery</h1>
             <div class="gallery">
-                {{ $gallery := (print "/rounds/gallery/" .File.BaseFileName) }}
+                {{ $gallery := string .Params.gallery }}
                 {{ range (.GetPage $gallery).Pages }}
                 <div class="gallery_box">
                     <div class="gallery_image_crop">

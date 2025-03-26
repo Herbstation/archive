@@ -15,4 +15,6 @@ recordings:
     url: https://www.youtube.com/watch?v=jz1f7QInZ_g
 -   text: REL's perspective
     url: https://www.youtube.com/watch?v=XWobKCqstZI
+synopsis: "/rounds/synopses/round_2"
+gallery: "/rounds/gallery/round_2"
 ---

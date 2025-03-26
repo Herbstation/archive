@@ -10,4 +10,6 @@ recordings:
     url: https://www.youtube.com/watch?v=tJScPONbapw
 -   text: Kwon's perspective (Round 3)
     url: https://www.youtube.com/watch?v=71otxT7Ib8k
+synopsis: "/rounds/synopses/soviet"
+gallery: "/rounds/gallery/soviet"
 ---

@@ -19,4 +19,6 @@ recordings:
     url: https://www.youtube.com/watch?v=jBrI295UYyM
 -   text: Victoria's perspective
     url: https://www.youtube.com/watch?v=L_8goiZ_9j8
+synopsis: "/rounds/synopses/round_3"
+gallery: "/rounds/gallery/round_3"
 ---

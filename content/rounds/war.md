@@ -10,4 +10,6 @@ recordings:
     url: https://www.youtube.com/watch?v=Wu8cPlFFpF4
 -   text: Suorftio's perspective
     url: https://www.youtube.com/watch?v=wA8_8Wt3X8A
+synopsis: "/rounds/synopses/war"
+gallery: "/rounds/gallery/war"
 ---
