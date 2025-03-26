@@ -237,41 +237,41 @@
                 {{ .Params.synopsis | markdownify }}
             </div>
         </div>
-        <!-- Gallery -->
-        <div class="row">
-            <div>
-                <h1>Gallery</h1>
-                <div class="gallery">
-                    {{ $gallery := string .Params.gallery }}
-                    {{ range (.GetPage $gallery).Pages }}
-                    <div class="gallery_box">
-                        <div class="gallery_image_crop">
-                            {{ $author := .Params.author}}
-                            {{ $desc := .Params.desc}}
-                            {{with .Params.media}}
-                            {{ $image := resources.Get . }}
-                            {{with $image}}
-                            <img
-                                src="{{.RelPermalink}}"
-                                class="gallery_image"
-                                onclick="setModalImage(this)"
-                                data-author="{{ $author }}"
-                                data-desc="{{ $desc }}"
-                            >
-                            {{else}}
-                            Missing resource!
-                            {{end}}
-                            {{else}}
-                            Missing image def!
-                            {{end}}
-                        </div>
-                        <h6 class="gallery_text">{{ .Params.author }}</h6>
-                    </div>
-                    {{end}}
-                </div>
-           </div>
+        <div>
+            {{ .Content }}
         </div>
-        {{ .Content }}
+        <!-- Gallery -->
+        <div>
+            <h1>Gallery</h1>
+            <div class="gallery">
+                {{ $gallery := string .Params.gallery }}
+                {{ range (.GetPage $gallery).Pages }}
+                <div class="gallery_box">
+                    <div class="gallery_image_crop">
+                        {{ $author := .Params.author}}
+                        {{ $desc := .Params.desc}}
+                        {{with .Params.media}}
+                        {{ $image := resources.Get . }}
+                        {{with $image}}
+                        <img
+                            src="{{.RelPermalink}}"
+                            class="gallery_image"
+                            onclick="setModalImage(this)"
+                            data-author="{{ $author }}"
+                            data-desc="{{ $desc }}"
+                        >
+                        {{else}}
+                        Missing resource!
+                        {{end}}
+                        {{else}}
+                        Missing image def!
+                        {{end}}
+                    </div>
+                    <h6 class="gallery_text">{{ .Params.author }}</h6>
+                </div>
+                {{end}}
+            </div>
+        </div>
     </main>
 </article>
 

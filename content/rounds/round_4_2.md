@@ -26,3 +26,9 @@ recordings:
 synopsis: Placeholder text.
 gallery: "/rounds/gallery/round_4_2"
 ---
+
+## Other Cinematics
+<div style="display: flex; justify-content: space-around;">
+    {{< video width=auto height=300 src=videos/outro.mp4 >}}
+    {{< video width=auto height=300 src=videos/epilogue.mp4 >}}
+</div>
