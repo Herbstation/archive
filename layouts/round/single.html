@@ -140,6 +140,10 @@
         padding: 1%;
     }
 
+    .modal_title {
+        margin: 0;
+    }
+
     .close_modal {
         position: absolute;
         top: 15px;
@@ -249,6 +253,7 @@
                 <div class="gallery_box">
                     <div class="gallery_image_crop">
                         {{ $author := .Params.author}}
+                        {{ $title := .Params.title}}
                         {{ $desc := .Params.desc}}
                         {{with .Params.media}}
                         {{ $image := resources.Get . }}
@@ -258,6 +263,7 @@
                             class="gallery_image"
                             onclick="setModalImage(this)"
                             data-author="{{ $author }}"
+                            data-title="{{ $title }}"
                             data-desc="{{ $desc }}"
                         >
                         {{else}}
@@ -277,7 +283,7 @@
 
 <!-- Gallery Image Modal -->
 <div id="gallery_modal" class="modal">
-    <span class="close_modal">&times;</span>
+    <span class="close_modal" onclick="closeModal()">&times;</span>
     <span class="left_arrow" onclick="navigateModalImages(-1)">&#xFFE9;</span>
     <span class="right_arrow" onclick="navigateModalImages(1)">&#xFFEB;</span>
     <div class="modal_contents">
@@ -287,7 +293,9 @@
                 <h5 id="modal_attribution" class="gallery_text"></h5>
             </div>
         </div>
-        <div id="modal_textbox" class="modal_textbox">
+        <div class="modal_textbox">
+            <h4 id="modal_title" class="modal_title"></h4>
+            <div id="modal_text"></div>
         </div>
     </div>
 </div>
@@ -298,14 +306,16 @@
     var modal_image_box = document.getElementById("modal_image_box");
     var modal_image = document.getElementById("modal_image");
     var modal_attribution = document.getElementById("modal_attribution");
-    var modal_textbox = document.getElementById("modal_textbox");
+    var modal_title = document.getElementById("modal_title");
+    var modal_text = document.getElementById("modal_text");
 
     function setModalImage(img) {
         modal.style.display = "block";
         modal.dataset.current_image = img.src;
         modal_image.src = img.src;
         modal_attribution.innerText = `contributed by ${img.dataset.author}`;
-        modal_textbox.innerHTML = img.dataset.desc;
+        modal_title.innerText = img.dataset.title;
+        modal_text.innerHTML = img.dataset.desc;
 
         // Set up the image dimensions, as object-fit does not work with the image box.
         var max_width = screen.width * 0.8;
@@ -341,8 +351,7 @@
         setModalImage(image_element_lookup[image_path_lookup[index]])
     }
 
-    var close_button = document.getElementsByClassName("close_modal")[0];
-    close_button.onclick = function() {
+    function closeModal() {
         modal.style.display = "none";
     }
 </script>

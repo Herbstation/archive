@@ -1,6 +1,7 @@
 ---
 media: "images/rounds/round_4_1/kwons_beans_3.png"
 media_type: image
+title:
 author: wisconsin
 desc:
 ---

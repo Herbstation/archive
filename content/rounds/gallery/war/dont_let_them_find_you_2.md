@@ -1,6 +1,7 @@
 ---
 media: "images/rounds/war/dont_let_them_find_you_2.png"
 media_type: image
+title:
 author: witchkit
 desc:
 ---

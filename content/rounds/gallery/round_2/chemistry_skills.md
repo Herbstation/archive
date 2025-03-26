@@ -1,6 +1,7 @@
 ---
 media: "images/rounds/round_2/chemistry_skills.png"
 media_type: image
+title:
 author: DisturbHerb
 desc:
 ---
