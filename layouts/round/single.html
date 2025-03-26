@@ -221,7 +221,7 @@
                 {{end}}
                 {{else}}
                 <div class="no_cinematic">
-                    <img src='{{ "404.png" | relURL}}'/>
+                    <img src='{{ "404.png" | relURL }}'/>
                     <h3 class="no_cinematic_text">No Cinematic!</h3>
                 </div>
                 {{end}}
@@ -238,7 +238,8 @@
             <!-- Synopsis Column -->
             <div class="synopsis">
                 <h1>Synopsis</h1>
-                {{ .Params.synopsis | markdownify }}
+                {{ $synopsis := (print "/rounds/synopses/" .File.BaseFileName ".md") }}
+                {{ readFile (.GetPage $synopsis) | markdownify }}
             </div>
         </div>
         <div>
@@ -248,7 +249,7 @@
         <div>
             <h1>Gallery</h1>
             <div class="gallery">
-                {{ $gallery := string .Params.gallery }}
+                {{ $gallery := (print "/rounds/gallery/" .File.BaseFileName) }}
                 {{ range (.GetPage $gallery).Pages }}
                 <div class="gallery_box">
                     <div class="gallery_image_crop">

@@ -1,0 +1,1 @@
+There were several rounds for the Soviet soldiers to get acclimated to the mechanics in 35 Below, and some of them recorded these rounds.
