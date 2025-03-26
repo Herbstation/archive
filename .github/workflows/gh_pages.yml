@@ -1,0 +1,26 @@
+name: Compile Hugo for GH Pages
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
+    - run: hugo --minify
+    - name: Upload to Pages
+      uses: actions/upload-pages-artifact@v1.0.7
+      with:
+        path: public/
+    - name: Deploy GitHub Pages site
+      uses: actions/deploy-pages@v1.2.4
