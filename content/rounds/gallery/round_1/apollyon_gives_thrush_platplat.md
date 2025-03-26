@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_1/apollyon_gives_thrush_platplat.png"
 media_type: image
-title:
+title: Apollyon Gives Thrush Platplat
 author: Thrush
-desc:
+desc: Thrush Roach finds a new friend!
 ---

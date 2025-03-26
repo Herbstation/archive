@@ -250,7 +250,7 @@
             <h1>Gallery</h1>
             <div class="gallery">
                 {{ $gallery := string .Params.gallery }}
-                {{ range (.GetPage $gallery).Pages }}
+                {{ range sort (.GetPage $gallery).Pages "Params.media" }}
                 <div class="gallery_box">
                     <div class="gallery_image_crop">
                         {{ $author := .Params.author}}
