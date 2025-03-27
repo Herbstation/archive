@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_4_1/spinning_globe.png"
 media_type: image
-title:
+title: A Spinning Globe
 author: GooberOne
-desc:
+desc: I don't think it's meant to spin in that axis.
 ---

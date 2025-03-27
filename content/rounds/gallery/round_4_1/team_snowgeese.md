@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_4_1/team_snowgeese.png"
 media_type: image
-title:
+title: Team Snowgeese
 author: pgmzeta
-desc:
+desc: An expedition crew prepares to leave the <i>NSS Intrepid's</i> main hanger.
 ---

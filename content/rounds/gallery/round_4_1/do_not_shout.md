@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_4_1/do_not_shout.png"
 media_type: image
-title:
+title: Do Not Shout In Her Face
 author: wisconsin
-desc:
+desc: Lieutenant Lev Arkhipov instructs Kwon Myong-hwa not to berate Paladin Trieu about her allegiances.
 ---
