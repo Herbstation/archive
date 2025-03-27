@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_3/clowns_body_disappears.png"
 media_type: image
-title:
+title: The Clown Disappears
 author: Tufukins
-desc:
+desc: The Clown's dead body mysteriously disappears west of the <i>NSS Intrepid</i>.
 ---

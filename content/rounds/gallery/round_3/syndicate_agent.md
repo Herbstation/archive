@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_3/syndicate_agent.png"
 media_type: image
-title:
+title: Taking Hostages
 author: yellowlemons
-desc:
+desc: A Syndicate Infiltrator confronts a group of colonists and begins to take hostages.
 ---
