@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_2/chemistry_skills.png"
 media_type: image
-title:
+title: Chemistry Skills
 author: DisturbHerb
-desc:
+desc: Swims-Seven-Seas tries their hand at chemistry.
 ---

@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_2/angry_joe.png"
 media_type: image
-title:
+title: JOE's Angry
 author: Scientifically
-desc:
+desc: We're still sure why he's like this.
 ---

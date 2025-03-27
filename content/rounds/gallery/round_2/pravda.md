@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_2/pravda.png"
 media_type: image
-title:
+title: We Have Pravda?
 author: wisconsin
-desc:
+desc: Kafka Hynes reads Pravda's latest article about the Soviet Union's new expedition to the lost Novy Mir.
 ---
