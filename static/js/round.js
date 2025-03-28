@@ -7,7 +7,7 @@ var modal_title = document.getElementById("modal_title");
 var modal_text = document.getElementById("modal_text");
 
 function setModalImage(img) {
-    modal.style.display = "block";
+    modal.showModal()
     modal.dataset.current_image = img.src;
     modal_image.src = img.src;
     modal_attribution.innerText = `contributed by ${img.dataset.author}`;
@@ -27,13 +27,6 @@ function setModalImage(img) {
     }
 }
 
-var image_path_lookup = []
-var image_element_lookup = []
-Array.from(document.getElementsByClassName("gallery_image")).forEach((img) => {
-    image_path_lookup.push(img.src);
-    image_element_lookup[img.src] = img;
-});
-
 function navigateModalImages(amt) {
     var index = image_path_lookup.indexOf(modal.dataset.current_image);
     modal_attribution.innerText = `${index}`;
@@ -48,6 +41,40 @@ function navigateModalImages(amt) {
     setModalImage(image_element_lookup[image_path_lookup[index]])
 }
 
-function closeModal() {
-    modal.style.display = "none";
-}
+
+modal.addEventListener("keydown", (event) => {
+    if (!modal.open) {
+        return;
+    }
+    switch (event.key) {
+        case "ArrowLeft":
+            navigateModalImages(-1);
+            break;
+        case "ArrowRight":
+            navigateModalImages(1);
+            break;
+    }
+});
+
+var image_path_lookup = []
+var image_element_lookup = []
+Array.from(document.getElementsByClassName("gallery_image")).forEach((img) => {
+    image_path_lookup.push(img.src);
+    image_element_lookup[img.src] = img;
+
+    img.addEventListener("click", () => {
+        setModalImage(img)
+    });
+});
+
+document.getElementById("close_modal").addEventListener("click", () => {
+    modal.close();
+});
+
+document.getElementById("left_arrow").addEventListener("click", () => {
+    navigateModalImages(-1);
+});
+
+document.getElementById("right_arrow").addEventListener("click", () => {
+    navigateModalImages(1);
+});
