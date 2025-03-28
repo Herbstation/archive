@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_4_2/hold_fire.png"
 media_type: image
-title:
+title: Hold Fire
 author: wisconsin
-desc:
+desc: Soviet Lieutenant Lev Arkhipov instructs Driver Nikolai Rubakov to hold fire after reducing NT colonist Bob Vecero to viscera.
 ---

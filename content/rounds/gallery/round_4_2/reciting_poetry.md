@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_4_2/reciting_poetry.png"
 media_type: image
-title:
+title: Poetry On The Eve Of War
 author: hera
-desc:
+desc: Kwon Myong-hwa recites war poetry as the Soviet forces charge into the NT colony.
 ---

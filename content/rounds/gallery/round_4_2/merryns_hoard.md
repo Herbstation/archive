@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_4_2/merryns_hoard.png"
 media_type: image
-title:
+title: Merryn's Hoard (R4.2)
 author: FireKestrel
-desc:
+desc: Merryn Morse dedicates herself to collecting shiny objects.
 ---

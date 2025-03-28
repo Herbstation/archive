@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_4_2/chemistry.png"
 media_type: image
-title:
+title: Chemistry Is Fired Upon
 author: yellowlemons
-desc:
+desc: The Research department being fired upon by the advancing Kharkovchanka and Soviet forces.
 ---

@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/round_4_2/readjusts_platplat.png"
 media_type: image
-title:
+title: Thrush & Platplat
 author: MissyNym
-desc:
+desc: Thrush seen carrying Platplat around in her parka.
 ---
