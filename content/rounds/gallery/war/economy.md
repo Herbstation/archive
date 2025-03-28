@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/war/economy.png"
 media_type: image
-title:
+title: The Economy
 author: witchkit
-desc:
+desc: Syndicate Commander Roxy Day announces her intent to run for the 35th presidency.
 ---

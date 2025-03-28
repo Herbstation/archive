@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/war/cheburashka.png"
 media_type: image
-title:
+title: Cheburashka Descends From Heaven
 author: wisconsin
-desc:
+desc: The beloved mascot joins the Soviet forces on their mission.
 ---

@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/war/roxy_3.png"
 media_type: image
-title:
+title: Roxy's Infiltration (3/4)
 author: witchkit
-desc:
+desc: Roxy Day leads a daring solo infiltration of the NT colony.
 ---

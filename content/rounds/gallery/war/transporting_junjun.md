@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/war/transporting_junjun.png"
 media_type: image
-title:
+title: Transporting Junjun
 author: Tel
-desc:
+desc: NT forces prepare to move Junjun forward to the Zarya.
 ---

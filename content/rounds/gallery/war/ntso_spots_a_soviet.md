@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/war/ntso_spots_a_soviet.png"
 media_type: image
-title:
+title: An NTSO Spots A Soviet
 author: sunny
-desc:
+desc: An exchange of bullets ensues.
 ---

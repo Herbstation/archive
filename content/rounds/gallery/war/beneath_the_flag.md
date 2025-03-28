@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/war/beneath_the_flag.png"
 media_type: image
-title:
+title: Beneath The Flag
 author: Scientifically
-desc:
+desc: Soviet Marine Royce Friedman bleeds out beneath his enemy's flag.
 ---

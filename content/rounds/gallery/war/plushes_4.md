@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/war/plushes_4.png"
 media_type: image
-title:
+title: The Plushes (4/4)
 author: witchkit
-desc:
+desc: The various stuffed animals throughout the war.
 ---

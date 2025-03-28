@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/war/paying_attention.png"
 media_type: image
-title:
+title: Paying Attention
 author: Scientifically
-desc:
+desc: Soviet Marine Royce Friedman takes the opportunity to draw a face.
 ---
