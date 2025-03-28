@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/soviet/propaganda.png"
 media_type: image
-title:
+title: Propaganda
 author: Winchester
-desc:
+desc: A revered commander and strategic mastermind.
 ---

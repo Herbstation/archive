@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/soviet/showers.png"
 media_type: image
-title:
+title: Showers
 author: wisconsin
-desc:
+desc: The Soviets shower before gearing up for training.
 ---

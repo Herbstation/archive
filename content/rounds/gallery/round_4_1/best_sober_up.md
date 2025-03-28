@@ -1,7 +1,7 @@
 ---
-media: "images/rounds/soviet/at_the_korolev_bar_1.png"
+media: "images/rounds/round_4_1/best_sober_up.png"
 media_type: image
-title: At The Korolev Bar (1/4)
-author: lemon_is_best
+title: Best Sober Up
+author: Croissant_man
 desc: The Soviets enjoy some drinks at the Korolev's bar before their Commander arrives.
 ---

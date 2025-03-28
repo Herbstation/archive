@@ -1,7 +1,7 @@
 ---
 media: "images/rounds/soviet/at_the_korolev_bar_2.png"
 media_type: image
-title:
+title: At The Korolev Bar (2/4)
 author: wisconsin
-desc:
+desc: The Soviets enjoy some drinks at the Korolev's bar before their Commander arrives.
 ---
