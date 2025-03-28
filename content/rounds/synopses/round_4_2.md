@@ -1,1 +1,15 @@
-Placeholder text.
+*The Truth And Lies That Give Us Hope* was the fifth and final public canon round of 35 Below. It was the subject of a tense confrontation with a newly arrived Soviet expeditionary force, and the destruction of the NT colony.
+
+The Soviet ship *Korolev* arrives in orbit of X4-6A. The Soviet expeditionary force awakes from cryosleep and make their way to the bridge to be briefed by High Command on their mission; rendezvous with the *Novy Mir* and determine its fate. Before long, the Soviet crew has gathered their equipment, made planetfall, and begun the construction of their forward operating base.
+
+Meanwhile, the colonists have laid out plans to travel to the farthest corners of *Banshee Pit*, in search of a crashed vessel that JOE insists is out there somewhere. Two expedition teams set off, one heading north, the other west.
+
+Suffering through several storms, the two teams simultaneously run upon the Soviet FOB from opposite sides, much to the alarm of its occupants. The Captain agrees to board the *Korolev* in order to negotiate terms with the Soviet Commander; the Commander outlines that NT is not to interfere with their operations nor to tamper with the *Novy Mir*, should they find it first.
+
+A surprise discovery is made when the *NCS Aegis* is found to the west, JOE having lost contact with it several weeks ago. Nothing of value is found, though. JOE continues to push the expedition teams to reach the lost ships before the Soviets, a broadcast unfortunately intercepted by the Soviets. The race to the *Novy Mir* and *USS Hawking* begins.
+
+Nanotrasen reaches the crash site of the two ships first, and with the Soviet forces hot on their heels, pilfer everything, including the *USS Hawking's* flight log. The Soviets, considering their agreement with NT to have been violated, open fire on the colonists, attempting to retrieve the stolen documents. Ultimately, the documents are destroyed when the Kharkovchanka opens fire on a colonist, who unbeknownst to the Soviets, was in possession of the flight logs. The remaining colonists are able to out-flank the Soviet forces and make their way back to the colony.
+
+Meanwhile, some crewmembers who remained at the colony come into possession of the command dossier, revealing that Nanotrasen never intended for their expedition to return after six months, as they had been promised. These secrets are, despite the best efforts of Command and Security, revealed to the crew. At first, they're unsure what to believe, but eventually rally together, and accept that either way, X4-6A will be their grave if they don't deal with the Soviets first.
+
+The northern perimeter is breached, and the Kharkovchanka and Soviet infantry open fire on the colony, laying waste to entire departments. Heavy casualties on both sides eventually result in the Soviets withdrawing and NT calling an evacuation, with surviving Soviets heading back to the *Korolev*, and NT colonists being shuttled to and taking refuge in JOE's asteroid.
