@@ -14,7 +14,11 @@ function setModalImage(img) {
     modal_title.innerText = img.dataset.title;
     modal_text.innerHTML = img.dataset.desc;
 
-    // Set up the image dimensions, as object-fit does not work with the image box.
+    setTimeout(updateModalImageDimensions(), 0)
+}
+
+// Set up the image dimensions, as object-fit does not work with the image box.
+function updateModalImageDimensions() {
     var max_width = screen.width * 0.8;
     var max_height = modal_image_contents.clientHeight + modal_image.clientHeight - modal_image_box.clientHeight;
 
