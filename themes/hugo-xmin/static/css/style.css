@@ -15,7 +15,11 @@ nav {
 }
 .menu { padding: 0; }
 img.menu { max-height: 5em; }
-.menu li { display: inline-block; }
+.menu li {
+  display: inline-block;
+  margin-left: 2px;
+  margin-right: 2px;
+}
 article header, .menu a {
   text-decoration: none;
   background: #eee;

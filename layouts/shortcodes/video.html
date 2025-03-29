@@ -1,0 +1,5 @@
+{{ $width := .Get "width" }}
+{{ $height := .Get "height" }}
+{{ with resources.Get (.Get "src") }}
+    <video width="{{ $width }}" height="{{ $height }}" controls src="{{.RelPermalink}}" type="video/mp4"></video>
+{{ end }}
