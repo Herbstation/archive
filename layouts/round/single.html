@@ -47,13 +47,13 @@
         margin: 5px;
     }
 
-    .gallery_image_crop {
+    .gallery_media_crop {
         width: 200px;
         height: 200px;
         overflow: hidden;
     }
 
-    .gallery_image {
+    .gallery_media {
         cursor: pointer;
         transition: 0.3s;
         display: block;
@@ -65,7 +65,7 @@
         object-fit: cover;
     }
 
-    .gallery_image:hover {
+    .gallery_media:hover {
         opacity: 0.7;
     }
 
@@ -105,14 +105,14 @@
         to {transform:scale(1)}
     }
 
-    #modal_image_contents {
+    #modal_media_contents {
         flex-grow: 1;
         align-content: center;
         margin: auto;
         overflow: hidden;
     }
 
-    #modal_image_box {
+    #modal_media_box {
         display: inline-block;
         text-decoration: none;
         background: #eee;
@@ -121,7 +121,7 @@
         padding-bottom: 0;
     }
 
-    #modal_image {
+    .modal_media {
         display: block;
         border-radius: 5px;
     }
@@ -247,27 +247,40 @@
             <h1>Gallery</h1>
             <div class="gallery">
                 {{ $gallery := string .Params.gallery }}
-                {{ range sort (.GetPage $gallery).Pages "Params.media" }}
+                {{ range sort (.GetPage $gallery).Pages ".File.BaseFileName" }}
                 <div class="gallery_box">
-                    <div class="gallery_image_crop">
-                        {{ $author := .Params.author}}
-                        {{ $title := .Params.title}}
-                        {{ $desc := .Params.desc}}
-                        {{with .Params.media}}
-                        {{ $image := resources.Get . }}
-                        {{with $image}}
+                    <div class="gallery_media_crop">
+                        {{ $author := .Params.author }}
+                        {{ $title := .Params.title }}
+                        {{ $desc := .Params.desc }}
+                        {{ $media := .Params.media }}
+                        {{ $media_type := .Params.media_type }}
+
+                        {{with resources.Get $media}}
+
+                        {{ if eq $media_type "image" }}
                         <img
                             src="{{.RelPermalink}}"
-                            class="gallery_image"
+                            class="gallery_media"
                             data-author="{{ $author }}"
                             data-title="{{ $title }}"
                             data-desc="{{ $desc }}"
+                            data-type="{{ $media_type }}"
                         >
                         {{else}}
-                        Missing resource!
+                        <video
+                            src="{{.RelPermalink}}"
+                            type="video/mp4"
+                            class="gallery_media"
+                            data-author="{{ $author }}"
+                            data-title="{{ $title }}"
+                            data-desc="{{ $desc }}"
+                            data-type="{{ $media_type }}"
+                        >
                         {{end}}
+
                         {{else}}
-                        Missing image def!
+                        Missing resource!
                         {{end}}
                     </div>
                     <h6 class="gallery_text">{{ .Params.author }}</h6>
@@ -278,15 +291,14 @@
     </main>
 </article>
 
-<!-- Gallery Image Modal -->
+<!-- Gallery Media Modal -->
 <dialog id="gallery_modal">
     <span id="close_modal">&times;</span>
     <span id="left_arrow">&#xFFE9;</span>
     <span id="right_arrow">&#xFFEB;</span>
-    <div class="modal_contents">
-        <div id="modal_image_contents">
-            <div id="modal_image_box">
-                <img id="modal_image">
+    <div class="modal_contents" autofocus>
+        <div id="modal_media_contents">
+            <div id="modal_media_box">
                 <h5 id="modal_attribution" class="gallery_text"></h5>
             </div>
         </div>

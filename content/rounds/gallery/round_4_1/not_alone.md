@@ -2,6 +2,6 @@
 media: "images/rounds/round_4_1/not_alone.png"
 media_type: image
 title: Not Alone
-author: Red
+author: rsod
 desc: JOE announces the discovery of the Soviet expeditionary force.
 ---
