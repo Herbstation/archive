@@ -1,0 +1,313 @@
+{{define "head"}}
+<style>
+    .article {
+        width: 134%;
+        margin-left: -17%;
+    }
+
+    .row {
+        display: flex;
+    }
+
+    .cinematic {
+        flex: 40%;
+    }
+
+    .synopsis {
+        flex: 60%;
+    }
+
+    .no_cinematic {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 300px;
+        text-decoration: none;
+        background: #eee;
+        border-radius: 5px;
+    }
+
+    .no_cinematic_text {
+        margin: 0;
+    }
+
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .gallery_box {
+        text-decoration: none;
+        background: #eee;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    .gallery_media_crop {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .gallery_media {
+        cursor: pointer;
+        transition: 0.3s;
+        display: block;
+        min-width: 200px;
+        min-height: 200px;
+        width: auto;
+        height: auto;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    .gallery_media:hover {
+        opacity: 0.7;
+    }
+
+    .gallery_text {
+        font-style: italic;
+        text-align: right;
+        color: grey;
+        padding-left: 3px;
+        padding-right: 3px;
+        margin: 0;
+    }
+
+    #gallery_modal {
+        outline: none;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal_contents {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 95%;
+        margin-top: 2%;
+        margin-left: 10%;
+        margin-right: 10%;
+        animation-name: zoom;
+        animation-duration: 0.5s;
+    }
+
+    @keyframes zoom {
+        from {transform:scale(0)}
+        to {transform:scale(1)}
+    }
+
+    #modal_media_contents {
+        flex-grow: 1;
+        align-content: center;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    #modal_media_box {
+        display: inline-block;
+        text-decoration: none;
+        background: #eee;
+        border-radius: 5px;
+        padding: 5px;
+        padding-bottom: 0;
+    }
+
+    .modal_media {
+        display: block;
+        border-radius: 5px;
+    }
+
+    .modal_textbox {
+        width: 60%;
+        flex-grow: 0;
+        text-decoration: none;
+        background: #eee;
+        border-radius: 5px;
+        margin: auto;
+        margin-top: 5px;
+        padding: 1%;
+    }
+
+    #modal_title {
+        margin: 0;
+    }
+
+    #close_modal {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    #left_arrow {
+        position: absolute;
+        top: 45%;
+        left: 50px;
+        color: #f1f1f1;
+        font-size: 80px;
+        font-weight: bold;
+        transition: 0.3s;
+        user-select: none
+    }
+
+    #right_arrow {
+        position: absolute;
+        top: 45%;
+        right: 50px;
+        color: #f1f1f1;
+        font-size: 80px;
+        font-weight: bold;
+        transition: 0.3s;
+        user-select: none
+    }
+
+    #close_modal:hover, #close_modal:focus, #left_arrow:hover, #left_arrow:focus, #right_arrow:hover, #right_arrow:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+{{end}}
+
+{{ define "main" }}
+<article class="article">
+    <!-- Round Navigation Menu -->
+    <ul class="menu">
+        {{ range .Site.Menus.rounds }}
+        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+        {{ end }}
+    </ul>
+    <hr />
+    <!-- Round Title -->
+    <header>
+        {{ block "header-extra" . }}
+        {{end}}
+        <h1>{{ .Title | markdownify }}</h1>
+        {{ range (.GetTerms "Contributors") }}
+        <span class="author"><a href="{{.Permalink}}">{{ .Title }}</a></span>
+        {{ end }}
+        {{ with .Params.date }}<time datetime='{{ .Format "2006-02-01" }}'> {{ .Format "January 2, 2006" }} </time>{{ end }}
+        </div>
+        {{ with .Draft }}
+        <mark>Unlisted</mark>
+        {{ end }}
+    </header>
+    <main>
+        <div class="row">
+            <!-- Cinematic & Recordings Column -->
+            <div class="cinematic">
+                <h1>Intro Cinematic</h1>
+                {{with .Params.cinematic}}
+                {{ $cinematic := resources.Get . }}
+                {{with $cinematic}}
+                <video width="400" height="300" controls src="{{.RelPermalink}}" type="video/mp4"></video>
+                {{else}}
+                Missing resource!
+                {{end}}
+                {{else}}
+                <div class="no_cinematic">
+                    <img src='{{ "404.png" | relURL }}'/>
+                    <h3 class="no_cinematic_text">No Cinematic!</h3>
+                </div>
+                {{end}}
+
+                <h1>Round Recordings</h1>
+                {{ range $map := .Params.recordings }}
+                <li><a href="{{ index $map "url" }}">{{ index $map "text" }}</a></li>
+                {{else}}
+                No recordings!
+                {{end}}
+                <br>
+                <a href="https://www.youtube.com/playlist?list=PLBRm0wnCu_DjDvNAu3OyQI8IU4zQU-4ZD&jct=0rUXKhLKtrj4_losPel4XQ">Visit the YouTube playlist for more!</a>
+            </div>
+            <!-- Synopsis Column -->
+            <div class="synopsis">
+                <h1>Synopsis</h1>
+                {{ $synopsis := string .Params.synopsis }}
+                {{ readFile (.GetPage $synopsis) | markdownify }}
+            </div>
+        </div>
+        <div>
+            {{ .Content }}
+        </div>
+        <!-- Gallery -->
+        <div>
+            <h1>Gallery</h1>
+            <div class="gallery">
+                {{ $gallery := string .Params.gallery }}
+                {{ range sort (.GetPage $gallery).Pages ".File.BaseFileName" }}
+                <div class="gallery_box">
+                    <div class="gallery_media_crop">
+                        {{ $author := .Params.author }}
+                        {{ $title := .Params.title }}
+                        {{ $desc := .Params.desc }}
+                        {{ $media := .Params.media }}
+                        {{ $media_type := .Params.media_type }}
+
+                        {{with resources.Get $media}}
+
+                        {{ if eq $media_type "image" }}
+                        <img
+                            src="{{.RelPermalink}}"
+                            class="gallery_media"
+                            data-author="{{ $author }}"
+                            data-title="{{ $title }}"
+                            data-desc="{{ $desc }}"
+                            data-type="{{ $media_type }}"
+                        >
+                        {{else}}
+                        <video
+                            src="{{.RelPermalink}}"
+                            type="video/mp4"
+                            class="gallery_media"
+                            data-author="{{ $author }}"
+                            data-title="{{ $title }}"
+                            data-desc="{{ $desc }}"
+                            data-type="{{ $media_type }}"
+                        >
+                        {{end}}
+
+                        {{else}}
+                        Missing resource!
+                        {{end}}
+                    </div>
+                    <h6 class="gallery_text">{{ $author }}</h6>
+                </div>
+                {{end}}
+            </div>
+        </div>
+    </main>
+</article>
+
+<!-- Gallery Media Modal -->
+<dialog id="gallery_modal">
+    <span id="close_modal">&times;</span>
+    <span id="left_arrow">&#xFFE9;</span>
+    <span id="right_arrow">&#xFFEB;</span>
+    <div class="modal_contents" autofocus>
+        <div id="modal_media_contents">
+            <div id="modal_media_box">
+                <h5 id="modal_attribution" class="gallery_text"></h5>
+            </div>
+        </div>
+        <div class="modal_textbox">
+            <h4 id="modal_title"></h4>
+            <div id="modal_text"></div>
+        </div>
+    </div>
+</dialog>
+
+<script defer language="javascript" type="text/javascript" src="/js/round.js"></script>
+{{end}}

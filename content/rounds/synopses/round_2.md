@@ -1,0 +1,9 @@
+*To Build A Fire* was the second public round of 35 Below. It featured the first antagonists of the event, Agitators: crewmembers who had become disillusioned with Command and started to demand the real answers to why they are here.
+
+Emerging from their shelters, the colonists work hard to continue establishing the colony, building out shells of rooms into fully fledged areas: a cozy bar and kitchen, a medical wing with cloning equipment, a growing hydroponics bay, and an established science department. Continuing to mine the nearby mountains for precious raw materials, a few outposts are established in cardinal directions to better orient themselves within the crater.
+
+Then something weird happens. A crewmember witnesses Security cover up the death of another crewmember. Wanting to dig deeper, that crewmember dedicates herself to figuring out what's going on, and building herself a scrap megaphone, she sets out to warn the crew. The first Agitator is born.
+
+As doubts are sown and more Agitators rise from the crew, a nascent riot forms in the Bar, with the crew pressuring the Captain on why they're really here, if there's nothing but snow and rocks outside. The Captain refuses to fold, and sticks to the official NT statements, so the Agitators arm themselves and head to Security, intending to storm the Bridge and take the command dossier for themselves. The HoS steps out, the Agitators open fire, and the riot turns bloody. Guerrilla warfare overtakes the colony.
+
+Command and Security comes to the conclusion that the mission objective must be protected, and resolve to execute all demonstrators, ruthlessly putting down riots and armed crewmembers alike. As the final blizzard rolls in, the Captain burns the evidence of the uprisings.
