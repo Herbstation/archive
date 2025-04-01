@@ -10,4 +10,4 @@ Welcome to the **35 Below Archive**.
 
 This website is an archive of publicly available materials on the project; from its development, records of all the sessions, and fan-made materials.
 
-Want to contribute? Please send any materials you want to include to \[EMAIL ADDRESS \].
+Want to contribute? Please send any materials you want to include to \[EMAIL ADDRESS\].

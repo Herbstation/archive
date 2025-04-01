@@ -24,4 +24,6 @@ thanks:
 -   aloe
 -   TemThrush
 -   Tarmunora
+-   Flaborized
+-   Azwald
 ---
