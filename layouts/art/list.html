@@ -36,6 +36,7 @@
         {{ $author := delimit .Params.author ", " }}
         {{ $title := .Params.title }}
         {{ $desc := .Params.desc }}
+        {{ $media_id := .File.BaseFileName }}
         <div class="gallery_box">
             <h5 class="gallery_title">{{ $title }}</h5>
             <div class="gallery_media_crop">
@@ -46,6 +47,7 @@
                     data-author="{{ $author }}"
                     data-title='"{{ $title }}" by {{ $author }}'
                     data-desc="{{ $desc }}"
+                    data-media_id="{{ $media_id }}"
                     data-type="image"
                 >
                 {{else}}

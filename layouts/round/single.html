@@ -104,6 +104,7 @@
                         {{ $title := .Params.title }}
                         {{ $desc := .Params.desc }}
                         {{ $media := .Params.media }}
+                        {{ $media_id := .File.BaseFileName }}
                         {{ $media_type := .Params.media_type }}
 
                         {{with resources.Get $media}}
@@ -115,6 +116,7 @@
                             data-author="{{ $author }}"
                             data-title="{{ $title }}"
                             data-desc="{{ $desc }}"
+                            data-media_id="{{ $media_id }}"
                             data-type="{{ $media_type }}"
                         >
                         {{else}}
@@ -125,6 +127,7 @@
                             data-author="{{ $author }}"
                             data-title="{{ $title }}"
                             data-desc="{{ $desc }}"
+                            data-media_id="{{ $media_id }}"
                             data-type="{{ $media_type }}"
                         >
                         {{end}}
