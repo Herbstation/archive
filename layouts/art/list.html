@@ -1,50 +1,80 @@
 {{define "head"}}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}{{ "/styles/gallery.css" | relURL }}">
 <style>
-    body {
-        max-width: 992px;
-    }
-    .gallery {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 1em;
-        flex-wrap: wrap;
-    }
-    .submission {
-        border: 1px solid grey;
-        border-radius: 5px;
-        display: grid;
-        grid-template-rows: 1fr auto;
-        justify-items: center;
-    }
-    h1 {
-        margin-bottom: 0;
+    .gallery_title {
+        max-width: 190px;
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
+        overflow: hidden;
+        text-align: center;
+        color: grey;
+        padding-left: 3px;
+        padding-right: 3px;
+        margin: auto;
     }
 </style>
 {{end}}
 
 {{define "main"}}
-<section class="gallery">
-    {{range .Pages}}
-    <article class="submission">
-        <h1>{{.Title}}</h1>
+<article>
+    <header>
+        {{ block "header-extra" . }}
+        {{end}}
+        <h1>{{ .Title | markdownify }}</h1>
         {{ range (.GetTerms "Contributors") }}
         <span class="author"><a href="{{.Permalink}}">{{ .Title }}</a></span>
         {{ end }}
-        <a href="{{.Permalink}}">
-        {{with .Params.image}}
-        {{ $image := resources.Get . }}
-        {{ $image := $image.Fill "256x256 Center" }}
-        {{with $image}}
-        <img src="{{.RelPermalink}}" width="{{ .Width }}" height="{{ .Height }}">
-        {{else}}
-        Missing resource!
+        {{ with .Params.date }}<time datetime='{{ .Format "2006-02-01" }}'> {{ .Format "January 2, 2006" }} </time>{{ end }}
+        </div>
+        {{ with .Draft }}
+        <mark>Unlisted</mark>
+        {{ end }}
+    </header>
+    <br>
+    <main class="gallery">
+        {{range sort .Pages ".File.BaseFileName"}}
+        {{ $author := .Params.author }}
+        {{ $title := .Params.title }}
+        {{ $desc := .Params.desc }}
+        <div class="gallery_box">
+            <h5 class="gallery_title">{{ $title }}</h5>
+            <div class="gallery_media_crop">
+                {{with resources.Get .Params.media}}
+                <img
+                    src="{{.RelPermalink}}"
+                    class="gallery_media"
+                    data-author="{{ $author }}"
+                    data-title='"{{ $title }}" by {{ $author }}'
+                    data-desc="{{ $desc }}"
+                    data-type="image"
+                >
+                {{else}}
+                Missing resource!
+                {{end}}
+            </div>
+            <h6 class="gallery_text">Copyright © 2025 {{ $author }}</h6>
+        </div>
         {{end}}
-        {{else}}
-        Missing image def!
-        {{end}}
-        </a>
-    </article>
-    {{end}}
-</section>
+    </main>
+</article>
+
+<!-- Gallery Media Modal -->
+<dialog id="gallery_modal">
+    <span id="close_modal">&times;</span>
+    <span id="left_arrow">&#xFFE9;</span>
+    <span id="right_arrow">&#xFFEB;</span>
+    <div class="modal_contents" autofocus>
+        <div id="modal_media_contents">
+            <div id="modal_media_box">
+                <h5 id="modal_attribution" class="gallery_text" data-prefixedtext="Copyright © 2025 "></h5>
+            </div>
+        </div>
+        <div class="modal_textbox">
+            <h4 id="modal_title"></h4>
+            <div id="modal_text"></div>
+        </div>
+    </div>
+</dialog>
+
+<script defer language="javascript" type="text/javascript" src="{{ .Site.BaseURL }}{{ "/js/round.js" | relURL }}"></script>
 {{end}}

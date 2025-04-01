@@ -9,7 +9,6 @@ params:
 taxonomies:
     category: categories
     tag: tags
-    contributor: contributors
 
 markup:
     goldmark:

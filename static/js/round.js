@@ -8,7 +8,7 @@ var modal_text = document.getElementById("modal_text");
 function setModalMedia(elem) {
     modal.showModal()
     modal.dataset.current_media = elem.src;
-    modal_attribution.innerText = `contributed by ${elem.dataset.author}`;
+    modal_attribution.innerText = `${modal_attribution.dataset.prefixedtext}${elem.dataset.author}`;
     modal_title.innerText = elem.dataset.title;
     modal_text.innerHTML = elem.dataset.desc;
 
