@@ -1,10 +1,6 @@
 {{define "head"}}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}{{ "/styles/gallery.css" | relURL }}">
 <style>
-    .article {
-        width: 134%;
-        margin-left: -17%;
-    }
-
     .row {
         display: flex;
     }
@@ -32,157 +28,11 @@
     .no_cinematic_text {
         margin: 0;
     }
-
-    .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .gallery_box {
-        text-decoration: none;
-        background: #eee;
-        border-radius: 5px;
-        margin: 5px;
-    }
-
-    .gallery_media_crop {
-        width: 200px;
-        height: 200px;
-        overflow: hidden;
-    }
-
-    .gallery_media {
-        cursor: pointer;
-        transition: 0.3s;
-        display: block;
-        min-width: 200px;
-        min-height: 200px;
-        width: auto;
-        height: auto;
-        border-radius: 5px;
-        object-fit: cover;
-    }
-
-    .gallery_media:hover {
-        opacity: 0.7;
-    }
-
-    .gallery_text {
-        font-style: italic;
-        text-align: right;
-        color: grey;
-        padding-left: 3px;
-        padding-right: 3px;
-        margin: 0;
-    }
-
-    #gallery_modal {
-        outline: none;
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    .modal_contents {
-        display: flex;
-        flex-direction: column;
-        width: 80%;
-        height: 95%;
-        margin-top: 2%;
-        margin-left: 10%;
-        margin-right: 10%;
-        animation-name: zoom;
-        animation-duration: 0.5s;
-    }
-
-    @keyframes zoom {
-        from {transform:scale(0)}
-        to {transform:scale(1)}
-    }
-
-    #modal_media_contents {
-        flex-grow: 1;
-        align-content: center;
-        margin: auto;
-        overflow: hidden;
-    }
-
-    #modal_media_box {
-        display: inline-block;
-        text-decoration: none;
-        background: #eee;
-        border-radius: 5px;
-        padding: 5px;
-        padding-bottom: 0;
-    }
-
-    .modal_media {
-        display: block;
-        border-radius: 5px;
-    }
-
-    .modal_textbox {
-        width: 60%;
-        flex-grow: 0;
-        text-decoration: none;
-        background: #eee;
-        border-radius: 5px;
-        margin: auto;
-        margin-top: 5px;
-        padding: 1%;
-    }
-
-    #modal_title {
-        margin: 0;
-    }
-
-    #close_modal {
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    #left_arrow {
-        position: absolute;
-        top: 45%;
-        left: 50px;
-        color: #f1f1f1;
-        font-size: 80px;
-        font-weight: bold;
-        transition: 0.3s;
-        user-select: none
-    }
-
-    #right_arrow {
-        position: absolute;
-        top: 45%;
-        right: 50px;
-        color: #f1f1f1;
-        font-size: 80px;
-        font-weight: bold;
-        transition: 0.3s;
-        user-select: none
-    }
-
-    #close_modal:hover, #close_modal:focus, #left_arrow:hover, #left_arrow:focus, #right_arrow:hover, #right_arrow:focus {
-        color: #bbb;
-        text-decoration: none;
-        cursor: pointer;
-    }
 </style>
 {{end}}
 
 {{ define "main" }}
-<article class="article">
+<article>
     <!-- Round Navigation Menu -->
     <ul class="menu">
         {{ range .Site.Menus.rounds }}
@@ -250,10 +100,11 @@
                 {{ range sort (.GetPage $gallery).Pages ".File.BaseFileName" }}
                 <div class="gallery_box">
                     <div class="gallery_media_crop">
-                        {{ $author := .Params.author }}
+                        {{ $author := delimit .Params.author ", " }}
                         {{ $title := .Params.title }}
                         {{ $desc := .Params.desc }}
                         {{ $media := .Params.media }}
+                        {{ $media_id := .File.BaseFileName }}
                         {{ $media_type := .Params.media_type }}
 
                         {{with resources.Get $media}}
@@ -265,6 +116,7 @@
                             data-author="{{ $author }}"
                             data-title="{{ $title }}"
                             data-desc="{{ $desc }}"
+                            data-media_id="{{ $media_id }}"
                             data-type="{{ $media_type }}"
                         >
                         {{else}}
@@ -275,6 +127,7 @@
                             data-author="{{ $author }}"
                             data-title="{{ $title }}"
                             data-desc="{{ $desc }}"
+                            data-media_id="{{ $media_id }}"
                             data-type="{{ $media_type }}"
                         >
                         {{end}}
@@ -299,7 +152,7 @@
     <div class="modal_contents" autofocus>
         <div id="modal_media_contents">
             <div id="modal_media_box">
-                <h5 id="modal_attribution" class="gallery_text"></h5>
+                <h5 id="modal_attribution" class="gallery_text" data-prefixedtext="contributed by "></h5>
             </div>
         </div>
         <div class="modal_textbox">

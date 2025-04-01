@@ -1,7 +1,8 @@
 ---
 media: "images/rounds/round_3/syla_explosion_aftermath.png"
 media_type: image
+type: art
 title: Syla's Revenge
-author: Bartimeus
+author: [Bartimeus]
 desc: Security discover that Syla Naris is ridden with microbombs the hard way.
 ---

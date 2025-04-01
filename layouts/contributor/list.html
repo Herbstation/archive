@@ -1,0 +1,84 @@
+{{define "head"}}
+<style>
+
+    h3 {
+        margin: 0;
+    }
+
+    .contributors {
+        display: flex;
+    }
+
+    .column {
+        width: 66%;
+    }
+
+    .contributor_list {
+        margin-bottom: 25px;
+        margin-left: 10px;
+    }
+
+    .author_list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 10px;
+    }
+
+    .author_box {
+        width: 25%;
+    }
+</style>
+{{end}}
+
+{{ define "main" }}
+<article>
+    <header>
+        {{ block "header-extra" . }}
+        {{end}}
+        <h1>{{ .Title | markdownify }}</h1>
+        {{ range (.GetTerms "Contributors") }}
+        <span class="author"><a href="{{.Permalink}}">{{ .Title }}</a></span>
+        {{ end }}
+        {{ with .Params.date }}<time datetime='{{ .Format "2006-02-01" }}'> {{ .Format "January 2, 2006" }} </time>{{ end }}
+        </div>
+        {{ with .Draft }}
+        <mark>Unlisted</mark>
+        {{ end }}
+    </header>
+    <main>
+        <h1>35 Below Contributors</h1>
+        <div class="contributors">
+            <div class="column">
+                <h3>Code And Visual Assets</h3>
+                <div class="contributor_list">
+                    {{ range $name := .Params.assets }}
+                    {{ $name }}<br>
+                    {{end}}
+                </div>
+                <h3>Writing, Conceptualisation, Additional Support</h3>
+                <div class="contributor_list">
+                    {{ range $name := .Params.support }}
+                    {{ $name }}<br>
+                    {{end}}
+                </div>
+            </div>
+            <div>
+                <h3>Special Thanks</h3>
+                <div class="contributor_list">
+                    {{ range $name := .Params.thanks }}
+                    {{ $name }}<br>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+        <h1>Archive Contributors</h1>
+        <div class="author_list">
+            {{ range (.GetPage "/author").Pages }}
+            <div class="author_box">
+                <a href="{{.Permalink}}">{{ .Data.Term }} ({{ .Pages | len }})</a>
+            </div>
+            {{end}}
+        </div>
+    </main>
+</article>
+{{end}}

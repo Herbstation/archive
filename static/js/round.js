@@ -7,8 +7,8 @@ var modal_text = document.getElementById("modal_text");
 
 function setModalMedia(elem) {
     modal.showModal()
-    modal.dataset.current_media = elem.src;
-    modal_attribution.innerText = `contributed by ${elem.dataset.author}`;
+    modal.dataset.current_media = elem.dataset.media_id;
+    modal_attribution.innerText = `${modal_attribution.dataset.prefixedtext}${elem.dataset.author}`;
     modal_title.innerText = elem.dataset.title;
     modal_text.innerHTML = elem.dataset.desc;
 
@@ -63,17 +63,17 @@ function updateModalMediaDimensions(elem) {
 }
 
 function navigateGallery(amt) {
-    var index = media_path_lookup.indexOf(modal.dataset.current_media);
+    var index = media_id_lookup.indexOf(modal.dataset.current_media);
     modal_attribution.innerText = `${index}`;
     index += amt;
     
-    if (index >= media_path_lookup.length) {
-        index -= media_path_lookup.length;
+    if (index >= media_id_lookup.length) {
+        index -= media_id_lookup.length;
     } else if (0 > index) {
-        index += media_path_lookup.length;
+        index += media_id_lookup.length;
     }
 
-    setModalMedia(media_element_lookup[media_path_lookup[index]])
+    setModalMedia(media_element_lookup[media_id_lookup[index]])
 }
 
 
@@ -95,11 +95,11 @@ modal.addEventListener("close", () => {
     modal_video?.pause();
 });
 
-var media_path_lookup = []
+var media_id_lookup = []
 var media_element_lookup = []
 Array.from(document.getElementsByClassName("gallery_media")).forEach((elem) => {
-    media_path_lookup.push(elem.src);
-    media_element_lookup[elem.src] = elem;
+    media_id_lookup.push(elem.dataset.media_id);
+    media_element_lookup[elem.dataset.media_id] = elem;
 
     elem.addEventListener("click", () => {
         setModalMedia(elem)
@@ -117,3 +117,9 @@ document.getElementById("left_arrow").addEventListener("click", () => {
 document.getElementById("right_arrow").addEventListener("click", () => {
     navigateGallery(1);
 });
+
+
+if (window.location.hash) {
+    setModalMedia(media_element_lookup[window.location.hash.replace("#", "")]);
+    window.history.replaceState(null, "", window.location.pathname);
+}

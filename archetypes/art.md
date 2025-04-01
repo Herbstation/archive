@@ -1,6 +1,7 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-image: "images/{{.Name}}"
-contributors: [Anonymous]
+media: "images/{{.Name}}"
+author: [Anonymous]
+desc: No description!
 ---

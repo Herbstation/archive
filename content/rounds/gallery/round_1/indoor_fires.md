@@ -1,7 +1,8 @@
 ---
 media: "images/rounds/round_1/indoor_fires.png"
 media_type: image
+type: art
 title: Indoor Fires
-author: dragonmouse1
+author: [dragonmouse1]
 desc: The crew forget to consult health and safety about their indoor heating project.
 ---
