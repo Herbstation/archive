@@ -123,7 +123,9 @@ document.getElementById("right_arrow").addEventListener("click", () => {
 });
 
 
-if (window.location.hash) {
-    setModalMedia(media_element_lookup[window.location.hash.replace("#", "")]);
-    window.history.replaceState(null, "", window.location.pathname);
-}
+window.addEventListener("load", () => {
+    if (window.location.hash) {
+        setModalMedia(media_element_lookup[window.location.hash.replace("#", "")]);
+        window.history.replaceState(null, "", window.location.pathname);
+    }
+});
