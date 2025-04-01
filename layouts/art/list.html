@@ -37,19 +37,23 @@
         {{ $title := .Params.title }}
         {{ $desc := .Params.desc }}
         {{ $media_id := .File.BaseFileName }}
+        {{ $permalink := .RelPermalink }}
+
         <div class="gallery_box">
             <h5 class="gallery_title">{{ $title }}</h5>
             <div class="gallery_media_crop">
                 {{with resources.Get .Params.media}}
-                <img
-                    src="{{.RelPermalink}}"
-                    class="gallery_media"
-                    data-author="{{ $author }}"
-                    data-title='"{{ $title }}" by {{ $author }}'
-                    data-desc="{{ $desc }}"
-                    data-media_id="{{ $media_id }}"
-                    data-type="image"
-                >
+                <a href="{{ $permalink }}" class="image_link">
+                    <img
+                        src="{{.RelPermalink}}"
+                        class="gallery_media"
+                        data-author="{{ $author }}"
+                        data-title='"{{ $title }}" by {{ $author }}'
+                        data-desc="{{ $desc }}"
+                        data-media_id="{{ $media_id }}"
+                        data-type="image"
+                    >
+                </a>
                 {{else}}
                 Missing resource!
                 {{end}}

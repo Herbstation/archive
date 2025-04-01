@@ -95,6 +95,10 @@ modal.addEventListener("close", () => {
     modal_video?.pause();
 });
 
+Array.from(document.getElementsByClassName("image_link")).forEach((elem) => {
+    elem.removeAttribute("href")
+});
+
 var media_id_lookup = []
 var media_element_lookup = []
 Array.from(document.getElementsByClassName("gallery_media")).forEach((elem) => {

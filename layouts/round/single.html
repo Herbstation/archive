@@ -106,19 +106,22 @@
                         {{ $media := .Params.media }}
                         {{ $media_id := .File.BaseFileName }}
                         {{ $media_type := .Params.media_type }}
+                        {{ $permalink := .RelPermalink }}
 
                         {{with resources.Get $media}}
 
                         {{ if eq $media_type "image" }}
-                        <img
-                            src="{{.RelPermalink}}"
-                            class="gallery_media"
-                            data-author="{{ $author }}"
-                            data-title="{{ $title }}"
-                            data-desc="{{ $desc }}"
-                            data-media_id="{{ $media_id }}"
-                            data-type="{{ $media_type }}"
-                        >
+                        <a href="{{ $permalink }}" class="image_link">
+                            <img
+                                src="{{.RelPermalink}}"
+                                class="gallery_media"
+                                data-author="{{ $author }}"
+                                data-title="{{ $title }}"
+                                data-desc="{{ $desc }}"
+                                data-media_id="{{ $media_id }}"
+                                data-type="{{ $media_type }}"
+                            >
+                        </a>
                         {{else}}
                         <video
                             src="{{.RelPermalink}}"
