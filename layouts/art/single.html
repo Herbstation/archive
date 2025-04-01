@@ -23,7 +23,7 @@
         {{ end }}
     </header>
     <main class="submission">
-        {{with .Params.image}}
+        {{with .Params.media}}
         {{ $image := resources.Get . }}
         {{ $thumb := $image.Fit "500x500" }}
         {{with $thumb}}
