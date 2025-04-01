@@ -2,6 +2,6 @@
 media: "images/rounds/round_3/kafka_remembers_5.png"
 media_type: image
 title: Kafka Remembers (5/8)
-author: Eva
+author: [Eva]
 desc: Kafka Hynes recognises Fiore Silvestri from the previous shift, remembering her actions.
 ---

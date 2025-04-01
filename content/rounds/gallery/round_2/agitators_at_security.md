@@ -2,6 +2,6 @@
 media: "images/rounds/round_2/agitators_at_security.png"
 media_type: image
 title: Agitators At Security
-author: Eva
+author: [Eva]
 desc: The Agitators prepare to storm Security and Command.
 ---

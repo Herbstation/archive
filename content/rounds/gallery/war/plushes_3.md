@@ -2,6 +2,6 @@
 media: "images/rounds/war/plushes_3.png"
 media_type: image
 title: The Plushes (3/4)
-author: witchkit
+author: [witchkit]
 desc: The various stuffed animals throughout the war.
 ---

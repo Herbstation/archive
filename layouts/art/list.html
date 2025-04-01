@@ -33,7 +33,7 @@
     <br>
     <main class="gallery">
         {{range sort .Pages ".File.BaseFileName"}}
-        {{ $author := .Params.author }}
+        {{ $author := delimit .Params.author ", " }}
         {{ $title := .Params.title }}
         {{ $desc := .Params.desc }}
         <div class="gallery_box">

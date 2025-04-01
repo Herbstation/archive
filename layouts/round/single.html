@@ -100,7 +100,7 @@
                 {{ range sort (.GetPage $gallery).Pages ".File.BaseFileName" }}
                 <div class="gallery_box">
                     <div class="gallery_media_crop">
-                        {{ $author := .Params.author }}
+                        {{ $author := delimit .Params.author ", " }}
                         {{ $title := .Params.title }}
                         {{ $desc := .Params.desc }}
                         {{ $media := .Params.media }}

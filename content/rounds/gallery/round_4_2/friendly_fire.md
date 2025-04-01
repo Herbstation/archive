@@ -2,6 +2,6 @@
 media: "images/rounds/round_4_2/friendly_fire.png"
 media_type: image
 title: Friendly Fire
-author: wisconsin
+author: [wisconsin]
 desc: The Soviet forces experience difficulties avoiding friendly fire.
 ---
