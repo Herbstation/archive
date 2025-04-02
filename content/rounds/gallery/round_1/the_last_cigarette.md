@@ -4,5 +4,5 @@ media_type: image
 type: art
 title: The Last Cigarette
 author: [Lazy_Shyguy]
-desc: Jimmy Novach asks Marvin McLight for share of the colony's last cigarette. How Security made it through subsequent rounds is still subject to active research.
+desc: Marvin McLight asks Jimmy Novach for share of the colony's last cigarette. How Security made it through subsequent rounds is still subject to active research.
 ---
