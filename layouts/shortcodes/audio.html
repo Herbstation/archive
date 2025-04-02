@@ -1,0 +1,3 @@
+{{ with resources.Get (.Get "src") }}
+    <video width="100%" height="50px" controls src="{{.RelPermalink}}" type="audio/ogg"></video>
+{{ end }}
