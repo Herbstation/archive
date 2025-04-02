@@ -23,7 +23,7 @@
       {{ $title := .Site.Title }}
       {{ $baseurl := .Site.BaseURL }}
       {{ with .Site.Params.Logo }}
-      <a href=""><img class="menu" src="{{ $baseurl }}{{ . | relURL }}" alt="{{ $title }}" /></a>
+      <a href="{{ $baseurl }}"><img class="menu" src="{{ $baseurl }}{{ . | relURL }}" alt="{{ $title }}" /></a>
       {{ else }}
       <div class="menu">{{ $title }}</div>
       {{ end }}
