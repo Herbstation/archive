@@ -27,7 +27,7 @@
         {{ $image := resources.Get . }}
         {{ $thumb := $image.Fit "500x500" }}
         {{with $thumb}}
-        <img class="subject" src="{{.RelPermalink}}" width="{{ .Width }}" height="{{ .Height }}">
+        <img class="subject" src="{{.RelPermalink}}" width="{{ .Width }}">
         {{end}}
         <a href="{{$image.RelPermalink}}">Full Image</a>
         {{else}}

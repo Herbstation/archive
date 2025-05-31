@@ -19,6 +19,8 @@ img.menu { max-height: 5em; }
   display: inline-block;
   margin-left: 2px;
   margin-right: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 article header, .menu a {
   text-decoration: none;

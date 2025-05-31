@@ -6,7 +6,8 @@
     }
 
     .cinematic {
-        flex: 40%;
+        flex: 38%;
+        margin-right: 2%;
     }
 
     .synopsis {
@@ -18,8 +19,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 400px;
-        height: 300px;
+        aspect-ratio: 4 / 3;
         text-decoration: none;
         background: #eee;
         border-radius: 5px;
@@ -62,7 +62,7 @@
                 {{with .Params.cinematic}}
                 {{ $cinematic := resources.Get . }}
                 {{with $cinematic}}
-                <video width="400" height="300" controls src="{{.RelPermalink}}" type="video/mp4"></video>
+                <video style="aspect-ratio: 4 / 3;" controls src="{{.RelPermalink}}" type="video/mp4"></video>
                 {{else}}
                 Missing resource!
                 {{end}}
@@ -149,18 +149,24 @@
 
 <!-- Gallery Media Modal -->
 <dialog id="gallery_modal">
-    <span id="close_modal">&times;</span>
-    <span id="left_arrow">&#xFFE9;</span>
-    <span id="right_arrow">&#xFFEB;</span>
-    <div class="modal_contents" autofocus>
-        <div id="modal_media_contents">
-            <div id="modal_media_box">
-                <h5 id="modal_attribution" class="gallery_text" data-prefixedtext="contributed by "></h5>
+    <div class="modal_flex">
+        <div class="modal_column">
+            <div id="left_arrow">&#xFFE9;</div>
+        </div>
+        <div class="modal_contents" autofocus>
+            <div id="modal_media_contents">
+                <div id="modal_media_box">
+                    <h5 id="modal_attribution" class="gallery_text" data-prefixedtext="contributed by "></h5>
+                </div>
+            </div>
+            <div class="modal_textbox">
+                <h4 id="modal_title"></h4>
+                <div id="modal_text"></div>
             </div>
         </div>
-        <div class="modal_textbox">
-            <h4 id="modal_title"></h4>
-            <div id="modal_text"></div>
+        <div class="modal_column">
+            <div id="close_modal">&times;</div>
+            <div id="right_arrow">&#xFFEB;</div>
         </div>
     </div>
 </dialog>

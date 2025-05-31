@@ -1,19 +1,19 @@
 body {
-    max-width: 70%;
+    max-width: 120ch;
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    column-gap: 10px;
+    row-gap: 10px;
     justify-content: center;
-    align-items: center;
 }
 
 .gallery_box {
     text-decoration: none;
     background: #eee;
     border-radius: 5px;
-    margin: 5px;
 }
 
 .gallery_media_crop {
@@ -57,14 +57,22 @@ body {
     background-color: rgba(0, 0, 0, 0.9);
 }
 
+.modal_flex {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.modal_column {
+    display: grid;
+    grid-template-rows: 150px auto;
+    align-items: center;
+}
+
 .modal_contents {
     display: flex;
     flex-direction: column;
-    width: 80%;
-    height: 95%;
-    margin-top: 2%;
-    margin-left: 10%;
-    margin-right: 10%;
+    flex-grow: 1;
     animation-name: zoom;
     animation-duration: 0.5s;
 }
@@ -96,7 +104,8 @@ body {
 }
 
 .modal_textbox {
-    width: 60%;
+    width: max(60%, 500px);
+    max-width: 100%;
     flex-grow: 0;
     text-decoration: none;
     background: #eee;
@@ -110,36 +119,23 @@ body {
     margin: 0;
 }
 
+#left_arrow, #right_arrow {
+    grid-row-start: 2;
+    padding-bottom: 150px;
+}
+
 #close_modal {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
+    margin-top: -120px;
 }
 
-#left_arrow {
-    position: absolute;
-    top: 45%;
-    left: 50px;
+#left_arrow, #right_arrow, #close_modal {
     color: #f1f1f1;
+    height: 150px;
+    align-content: center;
     font-size: 80px;
     font-weight: bold;
     transition: 0.3s;
-    user-select: none
-}
-
-#right_arrow {
-    position: absolute;
-    top: 45%;
-    right: 50px;
-    color: #f1f1f1;
-    font-size: 80px;
-    font-weight: bold;
-    transition: 0.3s;
-    user-select: none
+    user-select: none;
 }
 
 #close_modal:hover, #close_modal:focus, #left_arrow:hover, #left_arrow:focus, #right_arrow:hover, #right_arrow:focus {

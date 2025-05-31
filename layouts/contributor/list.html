@@ -19,13 +19,10 @@
     }
 
     .author_list {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        column-gap: 10px;
         margin-left: 10px;
-    }
-
-    .author_box {
-        width: 25%;
     }
 </style>
 {{end}}
@@ -74,7 +71,7 @@
         <h1>Archive Contributors</h1>
         <div class="author_list">
             {{ range (.GetPage "/author").Pages }}
-            <div class="author_box">
+            <div>
                 <a href="{{.Permalink}}">{{ .Data.Term }} ({{ .Pages | len }})</a>
             </div>
             {{end}}
