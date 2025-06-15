@@ -1,5 +1,4 @@
 {{define "head"}}
-<link rel="stylesheet" href="{{ .Site.BaseURL }}{{ "/styles/gallery.css" | relURL }}">
 <style>
     .row {
         display: flex;
@@ -40,20 +39,7 @@
         {{ end }}
     </ul>
     <hr />
-    <!-- Round Title -->
-    <header>
-        {{ block "header-extra" . }}
-        {{end}}
-        <h1>{{ .Title | markdownify }}</h1>
-        {{ range (.GetTerms "Contributors") }}
-        <span class="author"><a href="{{.Permalink}}">{{ .Title }}</a></span>
-        {{ end }}
-        {{ with .Params.date }}<time datetime='{{ .Format "2006-02-01" }}'> {{ .Format "January 2, 2006" }} </time>{{ end }}
-        </div>
-        {{ with .Draft }}
-        <mark>Unlisted</mark>
-        {{ end }}
-    </header>
+    {{ partial "header" (dict "context" . "title" .Title) }}
     <main>
         <div class="row">
             <!-- Cinematic & Recordings Column -->
@@ -95,81 +81,14 @@
         <!-- Gallery -->
         <div>
             <h1>Gallery</h1>
-            <div class="gallery">
-                {{ $gallery := string .Params.gallery }}
-                {{ range sort (.GetPage $gallery).Pages ".File.BaseFileName" }}
-                <div class="gallery_box">
-                    <div class="gallery_media_crop">
-                        {{ $author := delimit .Params.author ", " }}
-                        {{ $title := .Params.title }}
-                        {{ $desc := .Params.desc }}
-                        {{ $media := .Params.media }}
-                        {{ $media_id := .File.BaseFileName }}
-                        {{ $media_type := .Params.media_type }}
-                        {{ $permalink := .RelPermalink }}
-
-                        {{with resources.Get $media}}
-
-                        {{ if eq $media_type "image" }}
-                        <a href="{{ $permalink }}" class="image_link">
-                            <img
-                                src="{{.RelPermalink}}"
-                                class="gallery_media"
-                                data-author="{{ $author }}"
-                                data-title="{{ $title }}"
-                                data-desc="{{ $desc }}"
-                                data-media_id="{{ $media_id }}"
-                                data-type="{{ $media_type }}"
-                            >
-                        </a>
-                        {{else}}
-                        <video
-                            src="{{.RelPermalink}}"
-                            type="video/mp4"
-                            class="gallery_media"
-                            data-author="{{ $author }}"
-                            data-title="{{ $title }}"
-                            data-desc="{{ $desc }}"
-                            data-media_id="{{ $media_id }}"
-                            data-type="{{ $media_type }}"
-                        >
-                        {{end}}
-
-                        {{else}}
-                        Missing resource!
-                        {{end}}
-                    </div>
-                    <h6 class="gallery_text">{{ $author }}</h6>
-                </div>
-                {{end}}
-            </div>
+            {{ $args := dict
+                "context"           .
+                "show_title"        false
+                "has_copyright"     false
+                "gallery_pages"     (.GetPage (string .Params.gallery)).Pages
+            }}
+            {{ partial "gallery" $args }}
         </div>
     </main>
 </article>
-
-<!-- Gallery Media Modal -->
-<dialog id="gallery_modal">
-    <div class="modal_flex">
-        <div class="modal_column">
-            <div id="left_arrow">&#xFFE9;</div>
-        </div>
-        <div class="modal_contents" autofocus>
-            <div id="modal_media_contents">
-                <div id="modal_media_box">
-                    <h5 id="modal_attribution" class="gallery_text" data-prefixedtext="contributed by "></h5>
-                </div>
-            </div>
-            <div class="modal_textbox">
-                <h4 id="modal_title"></h4>
-                <div id="modal_text"></div>
-            </div>
-        </div>
-        <div class="modal_column">
-            <div id="close_modal">&times;</div>
-            <div id="right_arrow">&#xFFEB;</div>
-        </div>
-    </div>
-</dialog>
-
-<script defer language="javascript" type="text/javascript" src="{{ .Site.BaseURL }}{{ "/js/round.js" | relURL }}"></script>
 {{end}}

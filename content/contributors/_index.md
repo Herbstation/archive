@@ -1,7 +1,7 @@
 ---
 title: Contributors
 menu: index
-type: contributor
+type: contributors
 assets:
 -   Retrino
 -   Bartimeus

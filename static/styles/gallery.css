@@ -16,6 +16,18 @@ body {
     border-radius: 5px;
 }
 
+.gallery_title {
+    max-width: 190px;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-align: center;
+    color: grey;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin: auto;
+}
+
 .gallery_media_crop {
     width: 200px;
     height: 200px;

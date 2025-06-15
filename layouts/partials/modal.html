@@ -1,0 +1,27 @@
+{{ $context := .context }}
+{{ $prefixed_text := .prefixed_text }}
+
+<dialog id="gallery_modal">
+    <div class="modal_flex">
+        <div class="modal_column">
+            <div id="left_arrow">&#xFFE9;</div>
+        </div>
+        <div class="modal_contents" autofocus>
+            <div id="modal_media_contents">
+                <div id="modal_media_box">
+                    <h5 id="modal_attribution" class="gallery_text" data-prefixedtext="{{ $prefixed_text }}"></h5>
+                </div>
+            </div>
+            <div class="modal_textbox">
+                <h4 id="modal_title"></h4>
+                <div id="modal_text"></div>
+            </div>
+        </div>
+        <div class="modal_column">
+            <div id="close_modal">&times;</div>
+            <div id="right_arrow">&#xFFEB;</div>
+        </div>
+    </div>
+</dialog>
+
+<script defer language="javascript" type="text/javascript" src="{{ $context.Site.BaseURL }}{{ "/js/modal.js" | relURL }}"></script>

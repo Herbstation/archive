@@ -1,92 +1,15 @@
-{{define "head"}}
-<link rel="stylesheet" href="{{ .Site.BaseURL }}{{ "/styles/gallery.css" | relURL }}">
-<style>
-    .gallery_title {
-        max-width: 190px;
-        text-overflow: ellipsis;
-        text-wrap: nowrap;
-        overflow: hidden;
-        text-align: center;
-        color: grey;
-        padding-left: 3px;
-        padding-right: 3px;
-        margin: auto;
-    }
-</style>
-{{end}}
-
 {{define "main"}}
 <article>
-    <header>
-        {{ block "header-extra" . }}
-        {{end}}
-        <h1>{{ .Title | markdownify }}</h1>
-        {{ range (.GetTerms "Contributors") }}
-        <span class="author"><a href="{{.Permalink}}">{{ .Title }}</a></span>
-        {{ end }}
-        {{ with .Params.date }}<time datetime='{{ .Format "2006-02-01" }}'> {{ .Format "January 2, 2006" }} </time>{{ end }}
-        </div>
-        {{ with .Draft }}
-        <mark>Unlisted</mark>
-        {{ end }}
-    </header>
+    {{ partial "header" (dict "context" . "title" .Title) }}
     <br>
-    <main class="gallery">
-        {{range sort .Pages ".File.BaseFileName"}}
-        {{ $author := delimit .Params.author ", " }}
-        {{ $title := .Params.title }}
-        {{ $desc := .Params.desc }}
-        {{ $media_id := .File.BaseFileName }}
-        {{ $permalink := .RelPermalink }}
-
-        <div class="gallery_box">
-            <h5 class="gallery_title">{{ $title }}</h5>
-            <div class="gallery_media_crop">
-                {{with resources.Get .Params.media}}
-                <a href="{{ $permalink }}" class="image_link">
-                    <img
-                        src="{{.RelPermalink}}"
-                        class="gallery_media"
-                        data-author="{{ $author }}"
-                        data-title='"{{ $title }}" by {{ $author }}'
-                        data-desc="{{ $desc }}"
-                        data-media_id="{{ $media_id }}"
-                        data-type="image"
-                    >
-                </a>
-                {{else}}
-                Missing resource!
-                {{end}}
-            </div>
-            <h6 class="gallery_text">Copyright © 2025 {{ $author }}</h6>
-        </div>
-        {{end}}
+    <main>
+        {{ $args := dict
+            "context"           .
+            "show_title"        true
+            "has_copyright"     true
+            "gallery_pages"     .Pages
+        }}
+        {{ partial "gallery" $args }}
     </main>
 </article>
-
-<!-- Gallery Media Modal -->
-<dialog id="gallery_modal">
-    <div class="modal_flex">
-        <div class="modal_column">
-            <div id="left_arrow">&#xFFE9;</div>
-        </div>
-        <div class="modal_contents" autofocus>
-            <div id="modal_media_contents">
-                <div id="modal_media_box">
-                    <h5 id="modal_attribution" class="gallery_text" data-prefixedtext="contributed by "></h5>
-                </div>
-            </div>
-            <div class="modal_textbox">
-                <h4 id="modal_title"></h4>
-                <div id="modal_text"></div>
-            </div>
-        </div>
-        <div class="modal_column">
-            <div id="close_modal">&times;</div>
-            <div id="right_arrow">&#xFFEB;</div>
-        </div>
-    </div>
-</dialog>
-
-<script defer language="javascript" type="text/javascript" src="{{ .Site.BaseURL }}{{ "/js/round.js" | relURL }}"></script>
 {{end}}
