@@ -1,0 +1,10 @@
+{{ $title := .title }}
+{{ $date := .date }}
+{{ $permalink := .permalink }}
+<li>
+    {{ with $date }}
+    <time datetime='{{ .Format "2006-02-01" }}'>{{ .Format "2006/01/02" }}</time>
+    {{ end }}
+
+    <a href="{{ $permalink }}">{{ $title }}</a>
+</li>
