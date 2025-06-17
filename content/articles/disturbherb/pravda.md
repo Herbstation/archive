@@ -1,0 +1,7 @@
+---
+author: [DisturbHerb]
+article_publ: pravda
+article_head: Long-Lost Novy Mir Found!
+article_date: 2054-11-02
+article_body: "<p><b>NOVAYA MOSKVA</b> -- The Presidium of the Supreme Soviet of the Union of Soviet Socialist Republics confirmed this morning that contact had been re-established with the thought-to-be-lost <i>Novy Mir</i>, a meteorological vessel of the Soviet Navy. A distress signal back-dated to the 18th of November 2024 was received and partially decoded by the Orbital Signals Bureau the previous Friday whose origin was determined to be a binary star system 30 ly from Soviet territory.</p><p>During today's session of the Supreme Soviet, General Secretary Konstantinova addressed the nation, stressing the Union's will to determine the fate of the vessel.</p><p>\"We must not let the sacrifice of <i>Novy Mir</i> be in vain! She and her crew will live on forever in our ongoing struggle for our understanding of the universe! Whatever catastrophe came upon them, we cannot stop until answers are found!\"</p><p>Comrade Konstantinova's words were met with thundering applause by the other delegates. A military expedition is due to be dispatched to rendezvous with the origin of the distress signal, commencing by the end of the month.</p><p><i>Novy Mir</i> was declared lost on the 18th of December 2024 and formally struck from the naval registry on the 5th of July 2025. Her disappearance marked the greatest peacetime loss of Soviet equipment and personnel since the terrestrial <i>Krasnaya</i> disaster in 1998.</p>"
+---

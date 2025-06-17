@@ -1,0 +1,23 @@
+colony:
+  name: The Thundrando Times
+  body: "<center><h1 style=\"font-family: serif\">The Thundrando Times</h1><i>The Truth Beyond</i></center><hr><hr><i><div style=\"display:flex; justify-content:space-between\"><div>Banshee Pit, X4-6A</div></div></i>"
+
+classifieds:
+  name: Classifieds
+  body: "<center><h1 style=\"font-family: serif\">CLASSIFIED ADS</h1></center>"
+
+seneca:
+  name: Seneca Bugle
+  body: "<center><h1 style=\"font-family: serif\">The Seneca Bugle</h1><i>A Great Din Against the Silence</i></center><hr><hr><i><div style=\"display:flex; justify-content:space-between\"><div>Seneca NY, United States of America</div><div>Printed Daily</div></div></i>"
+
+pravda:
+  name: Pravda
+  body: "<center><h1 style=\"font-family: serif\">ПРАВДА</h1><i>The Official Newspaper of the Communist Party of the Soviet Union</i></center><hr><hr><i><div style=\"display:flex; justify-content:space-between\"><div>Novaya Moskva</div><div>Triweekly</div></div></i>"
+
+rumormill:
+  name: The Rumor Mill
+  body: "<center><h1 style=\"font-family: serif\">The Rumor Mill</h1><i>\"Sometimes nonsense, sometimes close to the truth.\"</i></center><hr><hr><i><div style=\"display:flex; justify-content:space-between\"><div>Lunaport, Luna</div><div>Biweekly</div></div></i>"
+
+lunaport:
+  name: Lunaport Liberties
+  body: "<center><h1 style=\"font-family: serif\">Lunaport Liberties</h1><i>Exaggeration? It's no exaggeration!</i></center><hr><hr><i><div style=\"display:flex; justify-content:space-between\"><div>Lunaport, Luna</div><div>Monthly</div></div></i>"
