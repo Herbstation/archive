@@ -20,9 +20,10 @@
     {{ range $art }}
     
     {{ $args := dict
-        "title"         .Title
-        "date"          .Date
-        "permalink"     (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
+        "title"             .Title
+        "date"              .Date
+        "permalink"         (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
+        "backup_permalink"  .Permalink
     }}
     {{ partial "contribution" $args }}
 
@@ -45,9 +46,10 @@
     {{ end }}
     
     {{ $args := dict
-        "title"         $title
-        "date"          .Date
-        "permalink"     (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
+        "title"             $title
+        "date"              .Date
+        "permalink"         (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
+        "backup_permalink"  .Permalink
     }}
     {{ partial "contribution" $args }}
 
@@ -63,9 +65,10 @@
     {{ range $screenshots }}
 
     {{ $args := dict
-        "title"         .Title
-        "date"          .Date
-        "permalink"     (print (.GetPage (print "/rounds/" .Parent.File.ContentBaseName)).RelPermalink "#" .File.BaseFileName)
+        "title"             .Title
+        "date"              .Date
+        "permalink"         (print (.GetPage (print "/rounds/" .Parent.File.ContentBaseName)).RelPermalink "#" .File.BaseFileName)
+        "backup_permalink"  .Permalink
     }}
     {{ partial "contribution" $args }}
 
@@ -73,4 +76,7 @@
     </ul>
     {{ end }}
 </article>
+
+<script defer language="javascript" type="text/javascript" src="{{ .Site.BaseURL }}{{ "/js/replace_links.js" | relURL }}"></script>
+
 {{ end }}
