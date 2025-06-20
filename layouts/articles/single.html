@@ -117,7 +117,7 @@
                         data-article_head="{{ .Params.article_head }}"
                         data-article_subt="{{ .Params.article_subt }}"
                         data-article_auth="{{ .Params.article_auth }}"
-                        data-article_date="{{ time.AsTime .Params.article_date | time.Format `:date_long` }}"
+                        data-article_date="{{ time.AsTime .Params.article_date | time.Format `:date_full` }}"
                         data-article_body="{{ .Params.article_body }}"
                     >
                         <div><b>{{ .Params.article_head | safeHTML }}</b></div>
