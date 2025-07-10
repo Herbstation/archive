@@ -31,7 +31,7 @@
             {{ end }}
 
             {{ if eq $media_type "image" }}
-            <a href="{{ $permalink }}" class="image_link">
+            <a href="{{ $permalink }}" class="strip_link">
                 <img
                     src="{{.RelPermalink}}"
                     class="gallery_media"
@@ -73,3 +73,5 @@
     "prefixed_text"     (cond $has_copyright "Copyright © 2025 " "contributed by ")
 }}
 {{ partial "modal" $args }}
+
+<script defer language="javascript" type="text/javascript" src="{{ $context.Site.BaseURL }}{{ "/js/strip_links.js" | relURL }}"></script>

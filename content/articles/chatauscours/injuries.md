@@ -1,0 +1,8 @@
+---
+author: [Chatauscours]
+article_publ: colony
+article_head: "Troubling Injuries On The NSS Intrepid: Mechanical Failures Or An Evil Spirit?"
+article_auth: Eats-His-Drafts
+article_date: 2055-01-12
+article_body: "<p><b>THUNDRANDO, BANSHEE PIT</b> -- Multiple crewmembers at the Thundrando colony report getting crushed by doors of the <i>NSS Intrepid</i> while trying to crawl through them. The doors would allegedly spontaneously close, without regard to whether a person was currently lying in the doorway or not. Command has acknowledged the issue and dispatched technical team to fix it, who, according to engineer Roman Aramov believes that \"it may be due to a decay of the safety system in-flight\".</p><p>A number of other crewmembers however are persuaded that it is the work of an evil spirit, after which the Banshee Craters, landing zone of the Intrepid was named.</p><p>One of the main propagators of the theory, Staff Assistant Astra Romeo has advised our field journalist to \"immediately find a chaplain or get crushed by the curse\".</p><p>Command and security assured the crew however that the situation was well under control, and that the widespread rumours of a dead body found by the officers are entirely false. Nevertheless, many still believe that the body is real, and that it may be the first victim of what is now called \"The curse of the closing doors\". We suppose only time will tell.</p>"
+---
