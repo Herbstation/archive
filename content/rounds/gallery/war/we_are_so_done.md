@@ -4,5 +4,5 @@ media_type: image
 type: art
 title: We Are So Done
 author: [wisconsin]
-desc: An NTSO laments the horrors of war while emerging from a cloning pod.
+desc: NTSO Victoria Ripley laments the horrors of war after retreating to the cloning bay.
 ---

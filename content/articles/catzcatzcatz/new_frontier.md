@@ -1,0 +1,8 @@
+---
+author: [CatzCatzCatz]
+article_publ: seneca
+article_head: NT To Explore Newly Discovered Frontier
+article_auth: Trip Katzenberg
+article_date: 2054-11-05
+article_body: "<p><b>SENECA, NY</b> -- On Wednesday at a Seneca press conference, Nanotrasen Research spokesperson Peter Hammer unveiled the <i>NSS Intrepid</i> -- the namesake of the new <i>Intrepid</i> class deep-space exploratory vessel alongside detailed plans for a six-month trip to chart and study a domain previously thought by many to be impossible to reach. NT also announced that its recruitment initiative for this mission continues, and boasts a 10,000⪽ signing bonus with five times the typical hazard pay offered to NT employees.</p><p>During the conference, the spokesperson did not speak on recent rumors of Soviet probes recently detected in that area or the recent announcement by the Soviet Government to send its own military expedition to recover the wreck of the long-thought-lost <i>Novy Mir</i>.</p><p>Critics of the Nanotrasen plan, however, pointed out that the new initiative is too optimistic. Citing the multiple incidents wherein multiple shuttles were hijacked by Syndicate leading to the destruction of Central Command's hangar and the recent crash where in the crew of NT-13 was forced to fend off wave after wave of angry raptors on a desert planet followed by what most call as \"sugarcoating\" by NT's Morale Officers have lead to fear that NT may cover up the potential failure of the initiative. NT, as of writing, has declined to comment.<p>"
+---

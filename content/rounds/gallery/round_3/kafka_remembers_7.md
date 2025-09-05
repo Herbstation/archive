@@ -4,5 +4,5 @@ media_type: image
 type: art
 title: Kafka Remembers (7/8)
 author: [Eva]
-desc: Kafka Hynes recognises Fiore Silvestri from the previous shift, remembering her actions.
+desc: Kafka Hayes recognises Fiore Silvestri from the previous shift, remembering her actions.
 ---

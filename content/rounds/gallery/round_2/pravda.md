@@ -4,5 +4,5 @@ media_type: image
 type: art
 title: We Have Pravda?
 author: [wisconsin]
-desc: Kafka Hynes reads Pravda's latest article about the Soviet Union's new expedition to the lost <i>Novy Mir</i>.
+desc: Kafka Hayes reads Pravda's latest article about the Soviet Union's new expedition to the lost <i>Novy Mir</i>.
 ---

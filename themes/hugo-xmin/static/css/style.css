@@ -19,6 +19,8 @@ img.menu { max-height: 5em; }
   display: inline-block;
   margin-left: 2px;
   margin-right: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 article header, .menu a {
   text-decoration: none;
@@ -84,6 +86,10 @@ table {
 table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
 thead, tfoot, tr:nth-child(even) { background: #eee; }
+
+a.strip_link {
+  all: unset;
+}
 
 
 img[src$='#fleft'], .float-left {

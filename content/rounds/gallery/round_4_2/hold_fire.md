@@ -4,5 +4,5 @@ media_type: image
 type: art
 title: Hold Fire
 author: [wisconsin]
-desc: Soviet Lieutenant Lev Arkhipov instructs Driver Nikolai Rubakov to hold fire after reducing NT colonist Bob Vecero to viscera.
+desc: Soviet Lieutenant Lev Arkhipov instructs Driver Nikolai Rubakov to hold fire after reducing NT colonist Percival Lune to viscera.
 ---

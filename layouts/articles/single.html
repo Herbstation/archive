@@ -1,0 +1,236 @@
+{{ define "head" }}
+<style>
+    .newsreader {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .newsreader hr {
+        border-style: solid;
+        color: #000;
+    }
+
+    .selector_column {
+        position: sticky;
+        top: 0;
+        width: 30%;
+        height: 100vh;
+        overflow-y: scroll;
+        margin-right: 8px;
+    }
+
+    .selector {
+        background: #eee;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        margin-right: 2px;
+    }
+
+    .selector.selected {
+        background: #ccc;
+    }
+
+    .selector:hover {
+        opacity: 0.7;
+    }
+
+    .selector div {
+        text-overflow: ellipsis;
+        text-wrap: nowrap;
+        overflow: hidden;
+    }
+
+    .article_column  {
+        width: 70%;
+        background: #eee;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    #no_article {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #no_article img {
+        min-width: 25%;
+        image-rendering: pixelated;
+    }
+
+    #article {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #article.hidden {
+        display: none;
+    }
+
+    #copyright_text {
+        font-style: italic;
+        text-align: right;
+        color: grey;
+        padding-left: 3px;
+        padding-right: 3px;
+        margin: 0;
+    }
+
+    hr.copyright_divider {
+        border-style: dashed;
+        color: grey;
+        margin: 0;
+    }
+</style>
+{{ end }}
+
+{{ define "main" }}
+
+{{ $js_enabled := (eq .File.BaseFileName "_index") }}
+
+<article>
+    {{ partial "header" (dict "context" . "title" .Title) }}
+    <main>
+        <div class="newsreader">
+            <div class="selector_column">
+                {{ $publishers := resources.Get "text/publishers.yaml" | transform.Unmarshal }}
+
+                {{ $context := . }}
+
+                {{ range sort (.Site.GetPage .Section).RegularPagesRecursive ".Params.article_date" "desc" }}
+                {{ $publisher := index $publishers .Params.article_publ }}
+
+                {{ $permalink := cond (eq $context .) (.Site.GetPage .Section).Permalink .Permalink }}
+                {{ $selector_classes := cond (eq $context .) "selector selected" "selector" }}
+
+                <a href="{{ $permalink }}" class="strip_link">
+                    <div
+                        class="{{ $selector_classes }}"
+                        data-article_id="{{ .File.BaseFileName }}"
+                        data-copyright_text="{{ delimit .Params.author `, ` }}"
+                        data-publisher_body="{{ $publisher.body }}"
+                        data-article_head="{{ .Params.article_head }}"
+                        data-article_subt="{{ .Params.article_subt }}"
+                        data-article_auth="{{ .Params.article_auth }}"
+                        data-article_date="{{ time.AsTime .Params.article_date | time.Format `:date_full` }}"
+                        data-article_body="{{ .Params.article_body }}"
+                    >
+                        <div><b>{{ .Params.article_head | safeHTML }}</b></div>
+                        <div><i>{{ $publisher.name | safeHTML }}</i></div>
+                        <div><i>{{ time.AsTime .Params.article_date | time.Format ":date_long" }}</i></div>
+                    </div>
+                </a>
+
+                {{ end }}
+            </div>
+            <div class="article_column">
+                {{ if $js_enabled }}
+                <div id="no_article">
+                    <img src='{{ "404.png" | relURL }}'/>
+                    <h3>Please select an article from the left.</h3>
+                </div>
+                {{ partial "empty_article" }}
+                {{ else }}
+                {{ partial "article" . }}
+                {{ end }}
+            </div>
+        </div>
+    </main>
+</article>
+
+{{ if $js_enabled }}
+<script defer language="javascript" type="text/javascript" src="{{ .Site.BaseURL }}{{ "/js/strip_links.js" | relURL }}"></script>
+<script defer language="javascript" type="text/javascript" src="{{ .Site.BaseURL }}{{ "/js/newsreader.js" | relURL }}"></script>
+{{ end }}
+
+{{ end }}
+
+
+{{ define "partials/empty_article.html" }}
+    <div id="article" class="hidden">
+        <div>
+            <h5 id="copyright_text"></h5>
+            <hr class="copyright_divider">
+        </div>
+
+        <div id="publisher_body">
+        </div>
+
+        <div>
+            <h3 id="article_head"></h3>
+        </div>
+
+        <div>
+            <i id="article_subt"></i>
+        </div>
+
+        <div>
+            <i id="article_auth"></i>
+        </div>
+
+        <div>
+            <i id="article_date"></i>
+            <hr>
+        </div>
+        
+        <div id="article_body" textAlign="justify">
+        </div>
+    </div>
+{{ end }}
+
+
+{{ define "partials/article.html" }}
+    <div id="article">
+        {{ $publishers := resources.Get "text/publishers.yaml" | transform.Unmarshal }}
+        {{ $publisher := index $publishers .Params.article_publ }}
+
+        {{ if .Params.author }}
+        <div>
+            <h5 id="copyright_text">Copyright © 2025 {{ delimit .Params.author `, ` }}</h5>
+            <hr class="copyright_divider">
+        </div>
+        {{ end }}
+
+        {{ if $publisher.body }}
+        <div id="publisher_body">
+            {{ $publisher.body | safeHTML }}
+        </div>
+        {{ end }}
+
+        {{ if .Params.article_head }}
+        <div>
+            <h3 id="article_head">{{ .Params.article_head | safeHTML }}</h3>
+        </div>
+        {{ end }}
+
+        {{ if .Params.article_subt }}
+        <div>
+            <i id="article_subt">{{ .Params.article_subt | safeHTML }}</i>
+        </div>
+        {{ end }}
+
+        {{ if .Params.article_auth }}
+        <div>
+            <i id="article_auth">{{ .Params.article_auth | safeHTML }}</i>
+        </div>
+        {{ end }}
+
+        {{ if .Params.article_date }}
+        <div>
+            <i id="article_date">{{ time.AsTime .Params.article_date | time.Format `:date_long` }}</i>
+            <hr>
+        </div>
+        {{ end }}
+        
+        {{ if .Params.article_body }}
+        <div id="article_body" textAlign="justify">
+            {{ .Params.article_body | safeHTML }}
+        </div>
+        {{ end }}
+    </div>
+{{ end }}

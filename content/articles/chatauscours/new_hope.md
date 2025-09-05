@@ -1,0 +1,8 @@
+---
+author: [Chatauscours]
+article_publ: colony
+article_head: "Thundrando: A New Hope And Colony For Nanotrasen"
+article_auth: Eats-His-Drafts
+article_date: 2055-01-12
+article_body: "<p><b>THUNDRANDO, BANSHEE PIT</b> -- Today, at 03:00 local time, Xavier Kent, Captain of the Thundrando colony solemnly raised the Nanotrasen flag marking the beginning of the colonisation of what some call the New Frontier, a space that has previously been believed to be impossible to reach.</p><p>This landmark achievement for Nanotrasen, that many experts believe will skyrocket the stocks of the company, is lavishly celebrated by the crew of the <i>NSS Intrepid</i>, the ship that serves now as the foundation of the colony. Multiple structures have already been build around the landing zone of the Intrepid, including a restaurant, a general storage area and a meteorological station.</p><p>Morale is at record high, with both command and crew issuing such hopeful statements as:</p><p>\"I am sure it will be a success. For everyone\" - Captain Xavier Kent.</p><p>\"It will be fine, the cold cannot stop technology.\" - Tanet Pescatore, Head of Personnel.</p><p>\"We’re on our way to build a lovely paradise on Banshee! We’ll survive and live a long and happy life there!\" - Ranni Stella, Staff Assistant.</p><p>The mission so far is believed to be a success by all parties involved, with many resources and useful data already discovered on the planet.</p>"
+---

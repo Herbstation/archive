@@ -1,0 +1,82 @@
+{{ define "head" }}
+<style>
+    h3, ul {
+        margin: 0;
+    }
+</style>
+{{ end }}
+
+{{ define "main" }}
+<article>
+    {{ partial "header" (dict "context" . "title" (print .Data.Term "'s Contributions")) }}
+
+    {{ .Content }}
+
+    {{ $art := (where .Pages "File.Section" "in" (slice "art" "fanart")) }}
+    {{ if $art }}
+    <br>
+    <h3>Art</h3>
+    <ul>    
+    {{ range $art }}
+    
+    {{ $args := dict
+        "title"             .Title
+        "date"              .Date
+        "permalink"         (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
+        "backup_permalink"  .Permalink
+    }}
+    {{ partial "contribution" $args }}
+
+    {{ end }}
+    </ul>
+    {{ end }}
+
+    {{ $articles := (where .Pages "File.Section" "eq" "articles") }}
+    {{ $publishers := resources.Get "text/publishers.yaml" | transform.Unmarshal }}
+    {{ if $articles }}
+    <br>
+    <h3>Articles</h3>
+    <ul>    
+    {{ range $articles }}
+
+    {{ $publisher := index $publishers .Params.article_publ }}
+    {{ $title := ($publisher.name | safeHTML) }}
+    {{ if .Params.article_head }}
+    {{ $title = print $title " § " (.Params.article_head | safeHTML) }}
+    {{ end }}
+    
+    {{ $args := dict
+        "title"             $title
+        "date"              .Date
+        "permalink"         (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
+        "backup_permalink"  .Permalink
+    }}
+    {{ partial "contribution" $args }}
+
+    {{ end }}
+    </ul>
+    {{ end }}
+
+    {{ $screenshots := (where .Pages "File.Section" "eq" "rounds") }}
+    {{ if $screenshots }}
+    <br>
+    <h3>Screenshots</h3>
+    <ul>
+    {{ range $screenshots }}
+
+    {{ $args := dict
+        "title"             .Title
+        "date"              .Date
+        "permalink"         (print (.GetPage (print "/rounds/" .Parent.File.ContentBaseName)).RelPermalink "#" .File.BaseFileName)
+        "backup_permalink"  .Permalink
+    }}
+    {{ partial "contribution" $args }}
+
+    {{ end }}
+    </ul>
+    {{ end }}
+</article>
+
+<script defer language="javascript" type="text/javascript" src="{{ .Site.BaseURL }}{{ "/js/replace_links.js" | relURL }}"></script>
+
+{{ end }}

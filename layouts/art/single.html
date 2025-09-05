@@ -11,23 +11,13 @@
 
 {{ define "main" }}
 <article>
-    <header>
-        <h1>{{ .Title | markdownify }}</h1>
-        {{ range (.GetTerms "Contributors") }}
-        <span class="author"><a href="{{.Permalink}}">{{ .Title }}</a></span>
-        {{ end }}
-        {{ with .Params.date }}<time datetime='{{ .Format "2006-02-01" }}'> {{ .Format "January 2, 2006" }} </time>{{ end }}
-        </div>
-        {{ with .Draft }}
-        <h1>DRAFT ARTICLE - DO NOT DISTRIBUTE</h1>
-        {{ end }}
-    </header>
+    {{ partial "header" (dict "context" . "title" .Title) }}
     <main class="submission">
         {{with .Params.media}}
         {{ $image := resources.Get . }}
         {{ $thumb := $image.Fit "500x500" }}
         {{with $thumb}}
-        <img class="subject" src="{{.RelPermalink}}" width="{{ .Width }}" height="{{ .Height }}">
+        <img class="subject" src="{{.RelPermalink}}" width="{{ .Width }}">
         {{end}}
         <a href="{{$image.RelPermalink}}">Full Image</a>
         {{else}}

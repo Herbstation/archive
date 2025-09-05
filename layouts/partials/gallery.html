@@ -1,0 +1,77 @@
+{{ $context := .context }}
+{{ $show_title := .show_title }}
+{{ $has_copyright := .has_copyright }}
+{{ $gallery_pages := .gallery_pages }}
+
+<head>
+    <link rel="stylesheet" href="{{ $context.Site.BaseURL }}{{ "/styles/gallery.css" | relURL }}">
+</head>
+
+<div class="gallery">
+    {{ range sort $gallery_pages ".File.BaseFileName" }}
+
+    {{ $author := (delimit .Params.author ", ") }}
+    {{ $title := .Params.title }}
+    {{ $desc := .Params.desc }}
+    {{ $media := .Params.media }}
+    {{ $media_id := .File.BaseFileName }}
+    {{ $media_type := .Params.media_type }}
+    {{ $permalink := .RelPermalink }}
+
+    <div class="gallery_box">
+        {{ if $show_title }}
+        <h5 class="gallery_title">{{ $title }}</h5>
+        {{ end }}
+        <div class="gallery_media_crop">
+            {{ with resources.Get $media }}
+
+            {{ if $has_copyright }}
+            {{ $title = printf "\"%s\"" $title }}
+            {{ $title = print $title " by " $author }}
+            {{ end }}
+
+            {{ if eq $media_type "image" }}
+            <a href="{{ $permalink }}" class="strip_link">
+                <img
+                    src="{{.RelPermalink}}"
+                    class="gallery_media"
+                    data-author="{{ $author }}"
+                    data-title="{{ $title }}"
+                    data-desc="{{ $desc }}"
+                    data-media_id="{{ $media_id }}"
+                    data-type="{{ $media_type }}"
+                >
+            </a>
+            {{ else }}
+            <video
+                src="{{.RelPermalink}}"
+                type="video/mp4"
+                class="gallery_media"
+                data-author="{{ $author }}"
+                data-title="{{ $title }}"
+                data-desc="{{ $desc }}"
+                data-media_id="{{ $media_id }}"
+                data-type="{{ $media_type }}"
+            >
+            {{ end }}
+
+            {{ else }}
+            Missing resource!
+            {{ end }}
+        </div>
+        {{ if $has_copyright }}
+        <h6 class="gallery_text">Copyright © 2025 {{ $author }}</h6>
+        {{ else }}
+        <h6 class="gallery_text">{{ $author }}</h6>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+
+{{ $args := dict
+    "context"           $context
+    "prefixed_text"     (cond $has_copyright "Copyright © 2025 " "contributed by ")
+}}
+{{ partial "modal" $args }}
+
+<script defer language="javascript" type="text/javascript" src="{{ $context.Site.BaseURL }}{{ "/js/strip_links.js" | relURL }}"></script>

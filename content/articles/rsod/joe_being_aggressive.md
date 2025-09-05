@@ -1,0 +1,8 @@
+---
+author: [Red Screen of Death]
+article_publ: colony
+article_head: Reports Of J.O.E. Being Aggressive To Crewmembers!
+article_auth: Red Jamiroquai
+article_date: 2055-02-23
+article_body: "<p><b>THUNDRANDO, BANSHEE PIT</b> -- \"J.O.E. is the scariest thing I've seen in my entire life, I don't wanna do anything to make it angry. Does the captain know about J.O.E.'s aggressiveness?\"</p><p>Quoted from Alphred Grayrat, voicing his thoughts about the situation. It's to no surprise that today's silicons follow a strict lawset we call Asimov's Laws. They're simple: do no harm to humans, follow orders, and defend yourself if need be.</p><p>Turns out that the modified robuddy we know as J.O.E. (Jones Observation Equipment) does not abide by these laws!<p>Throughout my shift, I've seen a wounded person recount that the robot deliberately harmed them, I've been personally threatened by J.O.E. themselves, and later on, watched as it fired one of our crewmembers before SENDING THEM FLYING THROUGH A WINDOW. Thankfully, help came shortly, but I don't believe the victim would've made it out alive if not treated instantly.</p><p>After taking up the current situation with the Captain, it seems that J.O.E.'s rules are in its own code, rather than any law rack silicons would typically be linked to. (despite this, i'm prone to believe he doesn't even have any..)</p><p>All in all, please, for your own safety.. don't anger the fella. You won't like what happens.</p>"
+---
