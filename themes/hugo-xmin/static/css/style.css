@@ -22,18 +22,18 @@ img.menu { max-height: 5em; }
   padding-top: 5px;
   padding-bottom: 5px;
 }
-article header, .menu a {
+header.slab, .menu a {
   text-decoration: none;
   background: #eee;
   padding: 5px;
   border-radius: 5px;
 }
-article header {
+header.slab {
   padding: 2em;
 }
-.menu, article header, body>footer { text-align: center; }
+.menu, header.slab, body>footer { text-align: center; }
 
-article header h1 {
+header.slab h1 {
   margin: 0em;
 }
 

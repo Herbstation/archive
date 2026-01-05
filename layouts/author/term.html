@@ -12,6 +12,24 @@
 
     {{ .Content }}
 
+    {{ $blog_posts := (where .Pages "File.Section" "eq" "blog") }}
+    {{ if $blog_posts }}
+    <br>
+    <h3>Blog Posts</h3>
+    <ul>    
+    {{ range $blog_posts }}
+    
+    {{ $args := dict
+        "title"             .Title
+        "permalink"         (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
+        "backup_permalink"  (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
+    }}
+    {{ partial "contribution" $args }}
+
+    {{ end }}
+    </ul>
+    {{ end }}
+
     {{ $art := (where .Pages "File.Section" "in" (slice "art" "fanart")) }}
     {{ if $art }}
     <br>
@@ -21,7 +39,6 @@
     
     {{ $args := dict
         "title"             .Title
-        "date"              .Date
         "permalink"         (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
         "backup_permalink"  .Permalink
     }}
@@ -47,7 +64,6 @@
     
     {{ $args := dict
         "title"             $title
-        "date"              .Date
         "permalink"         (print (.GetPage (.File.Section)).RelPermalink "#" .File.BaseFileName)
         "backup_permalink"  .Permalink
     }}
@@ -66,7 +82,6 @@
 
     {{ $args := dict
         "title"             .Title
-        "date"              .Date
         "permalink"         (print (.GetPage (print "/rounds/" .Parent.File.ContentBaseName)).RelPermalink "#" .File.BaseFileName)
         "backup_permalink"  .Permalink
     }}

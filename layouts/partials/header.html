@@ -1,6 +1,6 @@
 {{ $context := .context }}
 {{ $title := .title }}
-<header>
+<header class="slab">
     {{ block "header-extra" $context }}
     {{ end }}
     <h1>{{ $title | markdownify }}</h1>
@@ -8,7 +8,7 @@
     <span class="author"><a href="{{.Permalink}}">{{ $context.Title }}</a></span>
     {{ end }}
     {{ with $context.Params.date }}
-    <time datetime='{{ $context.Format "2006-02-01" }}'> {{ $context.Format "January 2, 2006" }} </time>
+    <time datetime='{{ . | time.Format "2006-02-01" }}'> {{ . | time.Format "January 2, 2006" }} </time>
     {{ end }}
     </div>
     {{ with $context.Draft }}
