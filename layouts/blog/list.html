@@ -23,12 +23,12 @@
 {{ end }}
 
 {{ define "main" }}
-<article>
+<main>
     {{ partial "header" (dict "context" . "title" .Title) }}
     <br>
-    <main>
+    <div>
         {{ range sort .Pages.ByDate.Reverse ".Params.pinned" "desc" }}
-        <div>
+        <article>
             <h1 class="title" id="{{ .File.BaseFileName }}">{{ .Params.title }}</h1>
             <div class="info">
                 <span>{{ delimit .Params.author `, ` }}</span>
@@ -47,9 +47,9 @@
                 {{ .Content }}
             </div>
             <hr class="divider">
-        </div>
+        </article>
         {{ end }}
         You've reached the end!
-    </main>
-</article>
+    </div>
+</main>
 {{ end }}

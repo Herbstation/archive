@@ -1,6 +1,6 @@
 {{ $context := .context }}
 {{ $title := .title }}
-<header>
+<header class="slab">
     {{ block "header-extra" $context }}
     {{ end }}
     <h1>{{ $title | markdownify }}</h1>
