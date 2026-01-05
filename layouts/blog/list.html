@@ -1,0 +1,55 @@
+{{ define "head" }}
+<style>
+    h1.title {
+        margin: 0;
+    }
+
+    div.info {
+        display: flex;
+        gap: 0.5em;
+    }
+
+    div.content {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    hr.divider {
+        margin-top: 2.5em;
+        margin-bottom: 2.5em;
+        border-style: solid;
+    }
+</style>
+{{ end }}
+
+{{ define "main" }}
+<article>
+    {{ partial "header" (dict "context" . "title" .Title) }}
+    <br>
+    <main>
+        {{ range sort .Pages.ByDate.Reverse ".Params.pinned" "desc" }}
+        <div>
+            <h1 class="title" id="{{ .File.BaseFileName }}">{{ .Params.title }}</h1>
+            <div class="info">
+                <span>{{ delimit .Params.author `, ` }}</span>
+                <span>&bull;</span>
+                <span>{{ .Params.date | time.Format `:date_long` }}</span>
+                {{ if .Params.revised }}
+                <span>&bull;</span>
+                <span>Last Revised {{ .Params.revised | time.Format `:date_long` }}</span>
+                {{ end }}
+                {{ if .Params.pinned }}
+                <span>&bull;</span>
+                <span>Pinned</span>
+                {{ end }}
+            </div>
+            <div class="content">
+                {{ .Content }}
+            </div>
+            <hr class="divider">
+        </div>
+        {{ end }}
+        You've reached the end!
+    </main>
+</article>
+{{ end }}
