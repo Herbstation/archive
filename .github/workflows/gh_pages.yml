@@ -20,7 +20,7 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
-        hugo-version: 'latest'
+        hugo-version: '0.152.2'
     - run: hugo --minify
     - name: Upload to Pages
       uses: actions/upload-pages-artifact@v1.0.7
