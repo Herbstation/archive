@@ -3,6 +3,8 @@ title: R1, Per Aspera Ad Aspera
 type: round
 cinematic: "videos/intro-1.mp4"
 recordings:
+-   text: Anya's perspective
+    url: https://www.youtube.com/watch?v=nKit0r-1v4s
 -   text: Kafka's perspective
     url: https://www.youtube.com/watch?v=q5qbwW8lfD0
 -   text: Merryn's perspective

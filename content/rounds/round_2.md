@@ -3,6 +3,10 @@ title: R2, To Build A Fire
 type: round
 cinematic: "videos/intro-2.mp4"
 recordings:
+-   text: Catz's perspective (1)
+    url: https://www.youtube.com/watch?v=S-COypT941M
+-   text: Catz's perspective (2)
+    url: https://www.youtube.com/watch?v=rcoyaQA0ohs
 -   text: Kafka's perspective
     url: https://www.youtube.com/watch?v=jeDoWi5sLQU
 -   text: Merryn's perspective

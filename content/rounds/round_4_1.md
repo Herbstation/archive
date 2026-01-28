@@ -3,6 +3,8 @@ title: R4.1, The Failure
 type: round
 cinematic: "videos/intro-4.mp4"
 recordings:
+-   text: Catz's perspective
+    url: https://www.youtube.com/watch?v=kHVOF6C7lX4
 -   text: Dobrynya's perspective
     url: https://www.youtube.com/watch?v=FSBU5AaGtUY
 -   text: Kwon's perspective
@@ -11,6 +13,8 @@ recordings:
     url: https://www.youtube.com/watch?v=MmCNv4PY810
 -   text: Merryn's perspective
     url: https://www.youtube.com/watch?v=DB_Ej3iH1To
+-   text: Minä's perspective
+    url: https://www.youtube.com/watch?v=qHB7-D-Dxrg
 -   text: Pippi's perspective
     url: https://www.youtube.com/watch?v=WC9Ehs7TIRM
 -   text: Quinn's perspective

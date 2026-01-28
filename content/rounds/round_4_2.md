@@ -19,6 +19,8 @@ recordings:
     url: https://www.youtube.com/watch?v=ss-1DEQ861o
 -   text: Roman's perspective
     url: https://www.youtube.com/watch?v=cflMAmfkOdA
+-   text: Starwalker's perspective
+    url: https://www.youtube.com/watch?v=G7h_RFerrcY
 -   text: Victoria's perspective
     url: https://www.youtube.com/watch?v=od4uQlaJ22w
 -   text: Yuri's perspective
