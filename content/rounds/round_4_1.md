@@ -21,8 +21,8 @@ recordings:
     url: https://www.youtube.com/watch?v=pDepcfNCnac
 -   text: Red's perspective
     url: https://www.youtube.com/watch?v=On2G5aozhdc
--   text: Victoria's perspective
-    url: https://www.youtube.com/watch?v=0TpyRgMD_TE
+# -   text: Victoria's perspective
+#     url: https://www.youtube.com/watch?v=0TpyRgMD_TE
 synopsis: "/rounds/synopses/round_4_1"
 gallery: "/rounds/gallery/round_4_1"
 ---

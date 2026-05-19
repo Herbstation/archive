@@ -7,6 +7,8 @@ recordings:
     url: https://www.youtube.com/watch?v=nKit0r-1v4s
 -   text: Kafka's perspective
     url: https://www.youtube.com/watch?v=q5qbwW8lfD0
+-   text: Linnea's perspective
+    url: https://www.youtube.com/watch?v=De8o2cIUmGY
 -   text: Merryn's perspective
     url: https://www.youtube.com/watch?v=y-3nxDT5Gg0
 -   text: Quinn's perspective

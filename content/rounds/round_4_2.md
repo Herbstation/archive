@@ -21,8 +21,8 @@ recordings:
     url: https://www.youtube.com/watch?v=cflMAmfkOdA
 -   text: Starwalker's perspective
     url: https://www.youtube.com/watch?v=G7h_RFerrcY
--   text: Victoria's perspective
-    url: https://www.youtube.com/watch?v=od4uQlaJ22w
+# -   text: Victoria's perspective
+#     url: https://www.youtube.com/watch?v=od4uQlaJ22w
 -   text: Yuri's perspective
     url: https://www.youtube.com/watch?v=4qSEmUdwPOo
 synopsis: "/rounds/synopses/round_4_2"
